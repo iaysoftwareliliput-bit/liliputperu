@@ -755,7 +755,7 @@ body {
 }
 
 .about-image {
-    flex: 1 1 300px;
+    flex: 1 1 00px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3019,9 +3019,9 @@ body {
     }
 
     /* Botón AGENDAR CITA justo después del logo */
-     .btn-pastel {
+        .btn-pastel {
     order: 2;
-    margin: 0 15% 0 0;  /* superior | derecho | inferior | izquierdo */
+    margin: 0 20% 0 0;  /* superior | derecho | inferior | izquierdo */
     white-space: nowrap;
     font-size: 0.9rem;
     padding: 0.4rem 1rem;
