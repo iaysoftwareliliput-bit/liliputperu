@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LILIPUT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="lili2.jpg">
+
+</head>
+<body>
+    <!-- PANTALLA DE CARGA CON LOGO GIRATORIO -->
+    
+
+
+    <!-- PANTALLA DE BIENVENIDA CON VIDEO -->
+    <div id="splash-screen" class="splash-screen-video">
+        <div class="contenedor-video">
+            <!-- VIDEO MP4 -->
+            <video id="video-bienvenida" autoplay muted playsinline>
+                <source src="100456.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento .
+            </video>
+            
+            <!-- BURBUJA DE BIENVENIDA -->
+            <div class="burbuja-bienvenida" id="burbuja1">
+                ¡Hola! Soy Lili
+            </div>
+             <div class="burbuja-bienvenida" id="burbuja2" style="opacity: 0;">
+    hoy te voy a mostrar Liliput
+</div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="main-content" id="mainContent">
+        <!-- Fondo con Imagen1.png y efecto parallax -->
+        <div class="parallax-bg" id="parallaxBg"></div>
+        <div class="parallax-overlay" id="parallaxOverlay"></div>
+
+       <nav class="navbar">
+    <div class="logo">
+        <img src="lili.png" alt="Liliput" class="logo-circular">
+    </div>
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+        <a href="#inicio">INICIO</a>
+        <a href="#sobre">ÁREAS</a>
+        <a href="#consejos">CONSEJOS</a>
+        <a href="#servicios">PROFESIONALES</a>
+        <a href="#recursos">MITOS</a>
+        <a href="#contacto">CONTACTO</a>
+    </div>
+    <button class="btn-pastel" id="abrir-modal">AGENDAR CITA</button>
+   
+</nav>
+        <section id="inicio">
+        <main class="container">
+            <!-- Hero section -->
+            <section class="hero" id="inicio" >
+                <div class="hero-content">
+                    <h1>A VECES LO MÁS VALIENTE QUE PUEDES HACER ES PEDIR AYUDA</h1>
+                    <p> ACOMPAÑAMIENTO PSICOLÓGICO PROFESIONAL CON UN ENFOQUE CÁLIDO, HUMANO Y BASADO EN LA EVIDENCIA.</p>
+                    <div class="hero-buttons">
+                        
+                    </div>
+                </div>
+                <div class="hero-image">
+                     <img src="leon.png"  class="about-img2">
+                </div>
+            </section>
+<!-- ===== SECCIÓN DE CONVENIOS EDUCATIVOS ===== -->
+<section class="convenios-section">
+    <h2 class="section-title">Instituciones que confían en nosotros</h2>
+    <p class="convenios-subtitulo">Contamos con convenios con 5 instituciones educativas</p>
+
+    <div class="convenios-grid">
+        <!-- Convenio 1 -->
+        <div class="convenio-card">
+            <img src="logos/colegio1.png" alt="Logo Colegio 1" class="convenio-logo">
+            <h3>Sócrates</h3>
+            
+        </div>
+
+        <!-- Convenio 2 -->
+        <div class="convenio-card">
+            <img src="logos/colegio2.png" alt="Logo Colegio 2" class="convenio-logo">
+            <h3>Rosa Suárez Rafael</h3>
+            
+        </div>
+
+        <!-- Convenio 3 -->
+        <div class="convenio-card">
+            <img src="logos/colegio3.png" alt="Logo Colegio 3" class="convenio-logo">
+            <h3>Saint Andrés </h3>
+        
+        </div>
+
+        <!-- Convenio 4 -->
+        <div class="convenio-card">
+            <img src="logos/colegio4.png" alt="Logo Colegio 4" class="convenio-logo">
+            <h3>José Joaquín Inclán </h3>
+           
+        </div>
+
+        <!-- Convenio 5 -->
+        <div class="convenio-card">
+            <img src="logos/colegio5.png" alt="Logo Colegio 5" class="convenio-logo">
+            <h3>Divino Rey</h3>
+            
+        </div>
+        <div class="convenio-card">
+            <img src="logos/colegio6.jpg" alt="Logo Colegio 6" class="convenio-logo">
+            <h3>UGEL Piura</h3>
+            
+        </div>
+    </div>
+</section>
+            <!-- Servicios -->
+<h2 class="section-title">ÁREAS DE ACOMPAÑAMIENTO</h2>
+
+<section class="cards" id="sobre">
+    <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>TOLERANCIA A LA FRUSTRACIÓN</h3>
+        <p>Acompañamos a sus hijos en el aprendizaje para manejar la frustración de manera saludable, fortaleciendo la paciencia y la resiliencia ante situaciones que no salen como esperan.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>CONTROL DE IMPULSOS</h3>
+        <p>Brindamos herramientas para que sus hijos aprendan a pensar antes de actuar, manejar la impulsividad y tomar decisiones más conscientes en su vida diaria.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>ATENCIÓN, CONCENTRACIÓN Y MEMORIA</h3>
+        <p>Fortalecemos las capacidades cognitivas de sus hijos mediante ejercicios prácticos que mejoran el enfoque, la retención de información y su rendimiento académico.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">😤</div>
+        <h3>CONTROL DE IRA</h3>
+        <p>Ayudamos a sus hijos a identificar los detonantes del enojo y a desarrollar estrategias efectivas para expresar sus emociones de manera adecuada y constructiva.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">👥</div>
+        <h3>SOCIALIZACIÓN</h3>
+        <p>Impulsamos el desarrollo de habilidades sociales en sus hijos, favoreciendo relaciones saludables, la creación de amistades y una mejor integración en su entorno.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">💛</div>
+        <h3>AUTOESTIMA</h3>
+        <p>Trabajamos en el fortalecimiento del autoconcepto y la valoración personal de sus hijos, promoviendo una relación más segura y positiva consigo mismos.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>ORIENTACIÓN VOCACIONAL</h3>
+        <p>Acompañamos a sus hijos en el descubrimiento de sus habilidades, intereses y fortalezas para que puedan tomar decisiones académicas y profesionales con mayor seguridad y claridad.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">😰</div>
+        <h3>ANSIEDAD</h3>
+        <p>Brindamos estrategias prácticas para que sus hijos aprendan a gestionar la ansiedad, reducir preocupaciones excesivas y recuperar la calma en su día a día.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">😩</div>
+        <h3>ESTRÉS</h3>
+        <p>Apoyamos a sus hijos en la identificación de las fuentes de estrés y en el desarrollo de técnicas efectivas para manejarlo, promoviendo equilibrio y bienestar.</p>
+    </div>
+</section>
+            <!-- Sección: ¿Cuándo llevar a mi hijo/a al psicólogo/a? -->
+            <section class="when-to-go" id="consejos">
+                <h2 class="section-title">¿Cuándo llevar a mi hijo/a al psicólogo/a?</h2>
+                
+
+                <div class="when-grid">
+                    <div class="when-item">
+                        <h3>Cambios en intereses y rutina</h3>
+                        <ul>
+                            <li>Sus gustos han cambiado radicalmente.</li>
+                            <li>Se ha desmotivado por actividades que antes le agradaban mucho.</li>
+                            <li>Ha experimentado alguna situación drástica (pérdida, cambio de vivienda, divorcio, etc.).</li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="when-item">
+                        <h3>Rendimiento y atención escolar</h3>
+                        <ul>
+                            <li>Bajo rendimiento escolar.</li>
+                            <li>Falta de atención / concentración.</li>
+                            <li>Hiperactividad o dificultades específicas del aprendizaje (lectura, escritura, cálculos, memoria, percepción).</li>
+                        </ul>
+                    </div>
+
+                    <div class="when-item">
+                        <h3>Relaciones sociales</h3>
+                        <ul>
+                            <li>Retraimiento o aislamiento social.</li>
+                            <li>Ejercer o sufrir acoso escolar.</li>
+                            <li>Dificultad para expresarse o aislarse de los padres.</li>
+                        </ul>
+                    </div>
+
+                    <div class="when-item">
+                        <h3>Problemas de conducta y emocionales</h3>
+                        <ul>
+                            <li>No respeta límites con padres, profesores u otras autoridades.</li>
+                            <li>Muestra impulsividad, agresividad o intolerancia a la frustración.</li>
+                            <li>Ansiedad, depresión o estrés.</li>
+                        </ul>
+                    </div>
+
+                    <div class="when-item">
+                        <h3>Desarrollo y salud</h3>
+                        <ul>
+                            <li>Trastornos del sueño o problemas en el control de esfínteres.</li>
+                            <li>Consumo de sustancias psicoactivas o riesgo de embarazo precoz.</li>
+                            <li>Señales de trastornos alimentarios (anorexia / bulimia).</li>
+                        </ul>
+                    </div>
+
+                    <div class="when-item">
+                        <h3>Problemas cognitivos y autoestima</h3>
+                        <ul>
+                            <li>Poca capacidad de autovaloración o desconfianza en sí mismo.</li>
+                            <li>Incapacidad para tomar decisiones y procrastinación.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+<!-- ===== SECCIÓN: PROCESO DE ACOMPAÑAMIENTO ===== -->
+<section class="proceso-section">
+    <h2 class="section-title">NUESTRO PROCESO DE ACOMPAÑAMIENTO</h2>
+    
+
+    <div class="proceso-grid">
+        <!-- Paso 1: Entrevista inicial -->
+        <div class="proceso-card">
+            <div class="proceso-icono">🗣️</div>
+            <h3>1. Sesion de orientación psicológica inicial</h3>
+            <p class="proceso-descripcion">Conversamos con los padres y el niño para conocer la situación, las preocupaciones y los objetivos. Este primer contacto es fundamental para establecer un vínculo de confianza.</p>
+            <div class="proceso-detalle">
+                <span>📋 Recogemos información detallada</span>
+                <span>👪 Participación de la familia</span>
+            </div>
+        </div>
+
+        <!-- Paso 2: Evaluación psicopedagógica -->
+        <div class="proceso-card">
+            <div class="proceso-icono">📊</div>
+            <h3>2. Evaluación</h3>
+            <p class="proceso-descripcion">Aplicamos pruebas, observaciones y cuestionarios adaptados a la edad para identificar fortalezas, dificultades y áreas de oportunidad.</p>
+            <div class="proceso-detalle">
+                <span>🧩 Evaluación cognitiva y emocional</span>
+                <span>📝 Análisis del rendimiento escolar</span>
+            </div>
+        </div>
+
+        <!-- Paso 3: Diseño de intervención -->
+        <div class="proceso-card">
+            <div class="proceso-icono">✏️</div>
+            <h3>3. Diseño de intervención</h3>
+            <p class="proceso-descripcion">Elaboramos un plan personalizado con objetivos claros y estrategias específicas, basadas en el enfoque cognitivo-conductual y las necesidades del niño.</p>
+            <div class="proceso-detalle">
+                <span>🎯 Metas a corto y largo plazo</span>
+                <span>📅 Actividades y técnicas adaptadas</span>
+            </div>
+        </div>
+
+        <!-- Paso 4: Intervención y seguimiento -->
+        <div class="proceso-card">
+            <div class="proceso-icono">🔄</div>
+            <h3>4. Intervención y seguimiento</h3>
+            <p class="proceso-descripcion">Sesiones regulares con el niño y reuniones periódicas con los padres para evaluar avances, ajustar estrategias y garantizar el progreso.</p>
+            <div class="proceso-detalle">
+                <span>📈 Monitoreo continuo</span>
+                <span>🤝 Retroalimentación a la familia</span>
+            </div>
+        </div>
+    </div>
+
+   
+</section>
+            <!-- Sobre la psicóloga -->
+            
+                <!-- Sobre el psicólogo - CON FOTO, SIN LA CARA SVG -->
+<section class="about-section" id="servicios" >
+    <div class="about-container">
+        <!-- FOTO DEL DOCTOR (lo que QUIERES mantener) -->
+        <div class="about-image">
+            <img src="dr1.png" alt="LIC. EDSON GUTIÉRREZ" class="about-img">
+        </div>
+        
+        <!-- DESCRIPCIÓN DEL DOCTOR -->
+        <div class="about-content">
+            <h2>Lic. Edson Gutiérrez Pellegrin</h2>
+            <p class="about-subtitle">Licenciado en Psicopedagogía con enfoque Cognitivo-Conductual.</p>
+            <p class="about-description">Especialista en acompañamiento infantil y adolescente.</p>
+
+            <div class="credenciales">
+                <span class="credencial">Psicopedagogía</span>
+            <span class="credencial">Convivencia Escolar</span>
+            <span class="credencial">Tutoría</span>
+            <span class="credencial">Enfoque Cognitivo-Conductual</span>
+            <span class="credencial">Orientación Educativa</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section" id="servicios">
+    <div class="about-container">
+        <!-- FOTO DEL DOCTOR (lo que QUIERES mantener) -->
+        <div class="about-image">
+            <img src="dra.png" alt="LIC. EDSON GUTIÉRREZ" class="about-img">
+        </div>
+        
+        <!-- DESCRIPCIÓN DE dra -->
+        <div class="about-content">
+            <h2>Lic. Ana Terán Cruz</h2>
+            <p class="about-subtitle">Licenciada en Psicopedagogía con enfoque Cognitivo-Conductual.</p>
+            <p class="about-description">Especialista en niños y adolescentes</p>
+            
+
+            <div class="credenciales">
+                <span class="credencial">Psicopedagogía</span>
+            <span class="credencial">Enfoque Cognitivo Conductual</span>
+            <span class="credencial">Procesos Clínicos</span>
+            <span class="credencial">Orientación Vocacional</span>
+            <span class="credencial">Acompañamiento Emocional</span>
+            </div>
+        </div>
+    </div>
+</section>
+            </section>
+
+        <!-- Verdades y Mitos -->
+<section class="testimonials" id="recursos">
+    <h2 class="section-title">Verdades y Mitos sobre la Psicología</h2>
+
+    <div class="testimonial-grid">
+        <!-- MITO 1 -->
+        <div class="testimonial-item mito">
+            <h3 class="icono">❌ MITO</h3>
+            <p>Ir al psicólogo es solo para personas con problemas graves.</p>
+        </div>
+
+        <!-- VERDAD 1 -->
+        <div class="testimonial-item verdad">
+            <h3 class="icono">✅ VERDAD</h3>
+            <p>La terapia ayuda a cualquier persona que quiera mejorar su bienestar emocional.</p>
+        </div>
+
+        <!-- MITO 2 -->
+        <div class="testimonial-item mito">
+            <h3 class="icono">❌ MITO</h3>
+            <p>Los niños no necesitan terapia porque “ya se les pasará”.</p>
+        </div>
+
+        <!-- VERDAD 2 -->
+        <div class="testimonial-item verdad">
+            <h3 class="icono">✅ VERDAD</h3>
+            <p>La atención temprana en la infancia fortalece el desarrollo emocional.</p>
+        </div>
+
+        <!-- MITO 3 -->
+        <div class="testimonial-item mito">
+            <h3 class="icono">❌ MITO</h3>
+            <p>Los psicólogos solo te escuchan y no dan soluciones.</p>
+        </div>
+
+        <!-- VERDAD 3 -->
+        <div class="testimonial-item verdad">
+            <h3 class="icono">✅ VERDAD</h3>
+            <p>Los psicólogos ofrecen herramientas y estrategias prácticas para enfrentar problemas.</p>
+        </div>
+
+        <!-- MITO 4 -->
+        <div class="testimonial-item mito">
+            <h3 class="icono">❌ MITO</h3>
+            <p>La terapia es larga y nunca termina.</p>
+        </div>
+
+        <!-- VERDAD 4 -->
+        <div class="testimonial-item verdad">
+            <h3 class="icono">✅ VERDAD</h3>
+            <p>La duración de la terapia depende de cada persona y sus objetivos; muchas veces es breve y efectiva.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</section>
+<!-- SECCIÓN DE EVENTOS Y TALLERES -->
+<section class="eventos-section" id="eventos">
+    <h2 class="section-title">📅 PRÓXIMOS EVENTOS</h2>
+    
+    
+    <div class="eventos-grid">
+        
+         <!-- Evento 1 -->
+        <div class="evento-card">
+            <div class="evento-flyer">
+                <img src="logos/colegio6.png" alt="Flyer del evento" class="flyer-imagen">
+                <div class="evento-fecha">
+                    <span class="fecha-dia">02 </span>
+                    <span class="fecha-mes">mar</span>
+                </div>
+            </div>
+            <div class="evento-info">
+                <h3>Primeros auxilios psicológicos</h3>
+                <p class="evento-descripcion">Charlas en I.E Madre Rafaela de la Pasión.</p>
+                <div class="evento-detalles">
+                    <p class="evento-hora">⏰ 8 am - 10:00 am</p>
+                    <p class="evento-lugar">📍  LILIPUT</p>
+                </div>
+                <a href="#" class="evento-btn">MÁS INFORMACIÓN</a>
+            </div>
+        </div>
+ <!-- Evento 1 -->
+        <div class="evento-card">
+            <div class="evento-flyer">
+                <img src="lili.png" alt="Flyer del evento" class="flyer-imagen">
+                <div class="evento-fecha">
+                    <span class="fecha-dia">08 </span>
+                    <span class="fecha-mes">mar</span>
+                </div>
+            </div>
+            <div class="evento-info">
+                <h3>Día de la Mujer </h3>
+                <div class="evento-detalles">
+                    <p class="evento-hora">⏰ 9 am a 1 pm</p>
+                    <p class="evento-lugar">📍  LILIPUT</p>
+                </div>
+                <a href="#" class="evento-btn">MÁS INFORMACIÓN</a>
+            </div>
+        </div>
+        <!-- Evento 1 -->
+        <div class="evento-card">
+            <div class="evento-flyer">
+                <img src="logos/colegio2.png" alt="Flyer del evento" class="flyer-imagen">
+                <div class="evento-fecha">
+                    <span class="fecha-dia">19 </span>
+                    <span class="fecha-mes">mar</span>
+                </div>
+            </div>
+            <div class="evento-info">
+                <h3>Primeros auxilios psicológicos</h3>
+                <p class="evento-descripcion">Charlas en el I.E Rosa Suárez Rafael.</p>
+                <div class="evento-detalles">
+                    <p class="evento-hora">⏰ 8:30 am - 9:30 am</p>
+                    <p class="evento-lugar">📍  LILIPUT</p>
+                </div>
+                <a href="#" class="evento-btn">MÁS INFORMACIÓN</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN DE RESEÑAS DE PACIENTES -->
+<section class="resenas-section" id="resenas">
+    <h2 class="section-title">💬 OPINIONES DE NUESTROS PACIENTES</h2>
+    <p class="resenas-subtitulo">Lo que dicen las familias sobre LILIPUT</p>
+    
+    <div class="resenas-grid">
+       <!-- Reseña 1 - María Fernández (Madre) -->
+        <div class="resena-card">
+            
+            <p class="resena-texto">"Mi hija peleaba constantemente con su hermanita, aquí en Liliput aprendió a regular sus emociones. Ahora comparte y cuando se frustra por algo, lo maneja de mejor forma que antes. Estamos muy agradecidos con el Lic. Edson."</p>
+            <div class="resena-autor">
+
+                <div class="resena-info">
+                    <h4>María lopez</h4>
+                    <p>Madre de familia</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reseña 2 - Carlos Rodríguez (Padre) -->
+        <div class="resena-card">
+            
+            <p class="resena-texto">"Mi hijo tenía problemas para hacer amigos y se aislaba mucho. Desde que asiste a terapia con la Lic. Ana, ha mejorado su autoestima y ahora participa en actividades con otros niños. Verlo feliz no tiene precio."</p>
+            <div class="resena-autor">
+                
+                <div class="resena-info">
+                    <h4>Carlos Gonsalez</h4>
+                    <p>Padre de familia</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reseña 3 - Patricia Mendoza (Madre) -->
+        <div class="resena-card">
+            
+            <p class="resena-texto">"Mi adolescente estaba pasando por una etapa de mucha ansiedad por los exámenes. En LILIPUT le enseñaron técnicas de relajación y manejo del estrés. Ahora enfrenta sus estudios con más calma y seguridad. Muy recomendados."</p>
+            <div class="resena-autor">
+                
+                <div class="resena-info">
+                    <h4>Patricia Macalupu
+
+                    </h4>
+                    <p>Madre de familia</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Reseña 5 - Lucía Gómez (Madre) -->
+        <div class="resena-card">
+            
+            <p class="resena-texto">"Mi hijo de 6 años tenía problemas para concentrarse en el colegio. La terapia con el Lic. Edson ha sido maravillosa, ahora presta más atención y sus notas han mejorado. Las sesiones son lúdicas y él va contento."</p>
+            <div class="resena-autor">
+                
+                <div class="resena-info">
+                    <h4>Lucía Quispe</h4>
+                    <p>Madre de familia</p>
+                </div>
+            </div>
+        </div>
+
+        
+   
+</section>
+            <!-- Newsletter -->
+            <!-- <section class="newsletter">-->
+             <!--   <h2> RECURSOS GRATUITOS</h2>-->
+             <!--     <p>Recibe guías y ejercicios de mindfulness.</p>-->
+              <!--  </section>-->
+
+<!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
+<section class="faq-section" id="preguntas">
+    <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
+    <p class="faq-subtitulo">Resolvemos tus dudas más comunes</p>
+    
+    <div class="faq-contenedor">
+        <!-- Pregunta 1 -->
+        <div class="faq-item">
+            <div class="faq-pregunta">
+                <span>👶 ¿Cómo sé si mi hijo necesita terapia?</span>
+                <span class="faq-icono">➕</span>
+            </div>
+            <div class="faq-respuesta">
+                <p>Algunas señales pueden ser: cambios bruscos en el comportamiento, dificultad para dormir, bajo rendimiento escolar sin causa aparente, irritabilidad constante, aislamiento o regresiones (volver a hacerse pipí, etc.). Si notas estas señales por más de 2-3 semanas, una consulta con un especialista puede ayudar a entender mejor la situación.</p>
+            </div>
+        </div>
+        <br>
+        <!-- Pregunta 2 -->
+        <div class="faq-item">
+            <div class="faq-pregunta">
+                <span>⏱️ ¿Cuánto dura una sesión de terapia?</span>
+                <span class="faq-icono">➕</span>
+            </div>
+            <div class="faq-respuesta">
+                <p>Las sesiones tienen una duración aproximada de 45 a 50 minutos. La frecuencia recomendada es generalmente semanal, especialmente al inicio del proceso, para poder establecer un vínculo terapéutico sólido y dar continuidad al trabajo emocional.</p>
+            </div>
+        </div>
+        <br>
+        <!-- Pregunta 3 -->
+        <div class="faq-item">
+            <div class="faq-pregunta">
+                <span>💳 ¿Aceptan seguros médicos?</span>
+                <span class="faq-icono">➕</span>
+            </div>
+            <div class="faq-respuesta">
+                <p>Actualmente trabajamos de manera particular. Aceptamos pago en efectivo, transferencia bancaria y Yape/Plin. Consulta por nuestras tarifas promocionales para pacientes frecuentes o paquetes de sesiones.</p>
+            </div>
+        </div>
+        <br>
+        <!-- Pregunta 4 -->
+        <div class="faq-item">
+            <div class="faq-pregunta">
+                <span>💻 ¿Ofrecen sesiones online?</span>
+                <span class="faq-icono">➕</span>
+            </div>
+            <div class="faq-respuesta">
+                <p>¡Sí! Ofrecemos sesiones tanto presenciales en nuestra oficina en Piura, como online a través de videollamada para quienes viven fuera de la ciudad o prefieren la comodidad de su hogar. Ambas modalidades tienen la misma calidad profesional.</p>
+            </div>
+        </div>
+        <br>
+        <!-- Pregunta 5 -->
+        <div class="faq-item">
+            <div class="faq-pregunta">
+                <span>🗓️ ¿Cómo puedo agendar mi primera cita?</span>
+                <span class="faq-icono">➕</span>
+            </div>
+            <div class="faq-respuesta">
+                <p>Puedes agendar de tres formas: </p><br>
+                <p>  1) Llenando nuestro formulario de contacto (botón "AGENDAR CITA"),</p><br>
+                <p>  2) Escribiéndonos directamente al WhatsApp 996110346, o</p><br>
+                <p>  3)  Enviándonos un mensaje por Instagram o Facebook o Tiktok Te responderemos a la brevedad posible para coordinar el día y hora de de tu cita.</p>
+            </div>
+        </div>
+        <br>
+                 <!-- Pregunta 6 -->
+<div class="faq-item">
+    <div class="faq-pregunta">
+        <span>👶 ¿Qué edades abordamos?</span>
+        <span class="faq-icono">➕</span>
+    </div>
+    <div class="faq-respuesta">
+        <p>Brindamos atención psicológica a:</p>
+        <p>👶 Niños desde los 3 años.</p>
+        <p>👦 Niños en etapa escolar.</p>
+        <p>🧑 Adolescentes.</p>
+        <p>👨‍👩‍👧 Padres que requieran orientación y acompañamiento.</p>
+        <p>Adaptamos las estrategias terapéuticas según la edad y las necesidades individuales de cada paciente, trabajando siempre de la mano con la familia cuando es necesario.</p>
+    </div>
+</div>
+<br>
+<!-- Pregunta 7 -->
+<div class="faq-item">
+    <div class="faq-pregunta">
+        <span>📄 ¿Realizan informes y certificados psicológicos?</span>
+        <span class="faq-icono">➕</span>
+    </div>
+    <div class="faq-respuesta">
+        <p>Sí, realizamos:</p><br>
+        <p>📑 Informes psicológicos para instituciones educativas.</p>
+        <p>📝 Certificados psicológicos según evaluación previa.</p>
+        <p>📊 Reportes de avance terapéutico cuando sean solicitados.</p>
+        <p>Todos los documentos se emiten de manera formal y profesional, luego de un proceso de evaluación responsable.</p>
+    </div>
+</div>
+    </div>
+</section>
+<!-- CARRUSEL DE PACIENTES -->
+<section class="carrusel-pacientes-section">
+    <div class="carrusel-container">
+        <div class="carrusel-track">
+            <!-- Imágenes (reemplazar con las reales) -->
+            <img src="fotos/1.jpg" alt="Paciente 1">
+            <img src="fotos/2.jpg" alt="Paciente 2">
+            <img src="fotos/3.jpg" alt="Paciente 3">
+            <img src="fotos/4.jpg" alt="Paciente 4">
+            <img src="fotos/5.jpg" alt="Paciente 5">
+            <img src="fotos/6.jpg" alt="Paciente 6">
+            <!-- Duplicamos algunas para efecto infinito -->
+            <img src="fotos/7.jpg" alt="Paciente 2">
+            <img src="fotos/1.jpg" alt="Paciente 1">
+            <img src="fotos/2.jpg" alt="Paciente 2">
+            <img src="fotos/3.jpg" alt="Paciente 3">
+            <img src="fotos/4.jpg" alt="Paciente 4">
+            <img src="fotos/5.jpg" alt="Paciente 5">
+            <img src="fotos/6.jpg" alt="Paciente 6">
+            <!-- Duplicamos algunas para efecto infinito -->
+            <img src="fotos/7.jpg" alt="Paciente 2">
+             <!-- Imágenes (reemplazar con las reales) -->
+            
+        </div>
+    </div>
+</section>
+          <!-- Footer -->
+<footer class="footer" id="contacto">
+    <div class="footer-content">
+        <!-- Grid de 5 columnas -->
+        <div class="footer-grid-5">
+            <!-- Columna 1: Logo y horario -->
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="lili.png" alt="Liliput" class="footer-logo-img">
+                    <h3>LILIPUT</h3>
+                </div>
+                <div class="footer-horario">
+                    <h4>🕒 Horario de Atención</h4>
+                    <p>Lunes a Sábado: 9:00am a 6:00pm</p>
+                    <p class="domingo">Domingos: Cerrado</p>
+                </div>
+            </div>
+
+            <!-- Columna 2: Enlaces de interés -->
+            <div class="footer-col">
+                <h4>🔗 Enlaces de Interés</h4>
+                <ul class="footer-enlaces">
+                    <li><a href="#inicio">➤ Inicio</a></li>
+                    <li><a href="#sobre">➤ Áreas de Acompañamiento</a></li>
+                    <li><a href="#consejos">➤ Consejos para Padres</a></li>
+                    <li><a href="#servicios">➤ Profesionales</a></li>
+                    <li><a href="#recursos">➤ Mitos y Verdades</a></li>
+                    <li><a href="#preguntas">➤ Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Contacto -->
+            <div class="footer-col">
+                <h4>📞 Contáctenos</h4>
+                <ul class="footer-contacto">
+                    <li>📱 <a href="https://wa.me/51996110346">+51 996 110 346</a></li>
+                    <li>📧 <a href="mailto:Liliput.peru@gmail.com">Liliput.peru@gmail.com</a></li>
+                    
+                    
+                </ul>
+                
+                <div class="footer-redes">
+                    <h4>🌐 Redes Sociales</h4>
+                    <div class="social">
+                        <a href="https://www.instagram.com/liliput.piura" target="_blank">
+                            <img src="1.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100075938857558" target="_blank">
+                            <img src="4.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.tiktok.com/@liliput.piura" target="_blank">
+                            <img src="3.png" alt="TikTok">
+                        </a>
+                        <a href="https://wa.me/51996110346" target="_blank">
+                            <img src="2.png" alt="WhatsApp">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Columna 4: Ubicación y mapa -->
+            <div class="footer-col">
+                <h4>📍 Ubicación</h4>
+                <div class="footer-mapa">
+                    <p class="direccion-destacada">
+                        <strong>Centro de Psicopedagogía Liliput</strong><br>
+                        Av. Sánchez Cerro 3389<br>
+                        Calle Tizón B04 interior 201<br>
+                        Piura - Perú
+                    </p>
+                    <a href="https://maps.app.goo.gl/6HEXpfMfYwoTq6D8A" target="_blank" class="btn-mapa">
+                        🗺️ Ver en Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 5: Cómo llegar en video -->
+            <div class="footer-col footer-video-col-5">
+                <h4>🎥 Cómo llegar a LILIPUT</h4>
+                <div class="video-container-vertical">
+                    <video class="footer-video-vertical" autoplay muted loop playsinline>
+                        <source src="cm.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                    <div class="video-overlay-vertical">
+                        <button class="video-sound-btn-vertical" id="unmute-btn">🔇 Activar sonido</button>
+                    </div>
+                </div>
+                <p class="video-subtitle-vertical">Sigue este video para llegar fácilmente a nuestro consultorio</p>
+            </div>
+        </div>
+
+        <!-- Copyright y términos -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2026 LILIPUT - Todos los derechos reservados
+                </p>
+                <p class="creditos">
+                    <!-- CREDITOS A HEINNER SAMIR VALDEZ YAMO numero para cualquier consulta sobre el desarrollo de la página: 937059682 -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        </main>
+    </div>
+
+<!-- MODAL DEL FORMULARIO DE CONTACTO - CON FORMSUBMIT -->
+<div id="modal-contacto" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar-modal">&times;</span>
+        <h2 class="modal-titulo">AGENDAR CITA</h2>
+        <p class="modal-subtitulo">Déjanos tus datos y te contactaremos</p>
+        
+        <!-- FORMULARIO CON FORMSUBMIT -->
+        <form action="https://formsubmit.co/Liliput.peru@gmail.com" method="POST" class="formulario-contacto">
+            <!-- Campos ocultos de configuración -->
+            <input type="hidden" name="_subject" value="Nueva cita desde web LILIPUT">
+            <input type="hidden" name="_template" value="table">
+            
+            <!-- Campo anti-spam oculto -->
+            <input type="text" name="_honey" style="display:none">
+            
+            <div class="campo-formulario">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: María Pérez">
+            </div>
+            
+            <div class="campo-formulario">
+                <label for="correo">Correo electrónico *</label>
+                <input type="email" id="correo" name="email" required placeholder="tucorreo@ejemplo.com">
+            </div>
+            
+            <div class="campo-formulario">
+                <label for="telefono">Teléfono / WhatsApp *</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 996110346">
+            </div>
+            
+           <div class="campo-formulario dropdown-checkbox">
+    <label>Motivo de consulta</label>
+    <div class="dropdown-container">
+        <button type="button" class="dropdown-button" id="dropdownMotivoBtn">
+            Selecciona una o más opciones
+        </button>
+        <div class="dropdown-opciones" id="dropdownMotivoOpciones">
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_tolerancia_frustracion" value="tolerancia_frustracion">
+                <label for="motivo_tolerancia_frustracion">Tolerancia a la frustración</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_control_impulsos" value="control_impulsos">
+                <label for="motivo_control_impulsos">Control de impulsos</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_atencion_concentracion_memoria" value="atencion_concentracion_memoria">
+                <label for="motivo_atencion_concentracion_memoria">Atención, concentración y memoria</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_control_ira" value="control_ira">
+                <label for="motivo_control_ira">Control de ira</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_socializacion" value="socializacion">
+                <label for="motivo_socializacion">Socialización</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_autoestima" value="autoestima">
+                <label for="motivo_autoestima">Autoestima</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_orientacion_vocacional" value="orientacion_vocacional">
+                <label for="motivo_orientacion_vocacional">Orientación Vocacional</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_ansiedad" value="ansiedad">
+                <label for="motivo_ansiedad">Ansiedad</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="motivo_estres" value="estres">
+                <label for="motivo_estres">Estrés</label>
+            </div>
+        </div>
+    </div>
+    <!-- Campo oculto que guarda los valores seleccionados (separados por coma) -->
+    <input type="hidden" name="motivo" id="motivoSelected" value="">
+</div>
+            
+            <div class="campo-formulario">
+                <label for="profesional">Asignación según disponibilidad </label>
+                <select id="profesional" name="profesional">
+                    <option value="">Indiferente</option>
+                    <option value="edson">LIC. Edson Gutiérrez Pellegrin</option>
+                    <option value="ana">LIC. Ana Terán Cruz</option>
+                </select>
+            </div>
+            
+            <div class="campo-formulario">
+                <label for="mensaje">Mensaje adicional</label>
+                <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos brevemente..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-enviar">ENVIAR SOLICITUD</button>
+        </form>
+        
+        <!-- Mensaje de éxito (ya no se usa pero lo dejamos por si acaso) -->
+        <div id="mensaje-exito" class="mensaje-exito" style="display: none;">
+            <div class="icono-exito">✅</div>
+            <h3>¡Solicitud enviada!</h3>
+            <p>Gracias por contactarnos. Te responderemos a la brevedad.</p>
+            <button class="btn-cerrar-exito">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+ <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ===== SCRIPT PRINCIPAL: VIDEO Y PARALLAX =====
+        (function() {
+            const splashScreen = document.getElementById('splash-screen');
+            const video = document.getElementById('video-bienvenida');
+            const mainContent = document.getElementById('mainContent');
+            const burbuja1 = document.getElementById('burbuja1');
+            const burbuja2 = document.getElementById('burbuja2');
+
+            // Mostrar splash screen y reproducir video inmediatamente
+            window.addEventListener('load', function() {
+                if (splashScreen) {
+                    splashScreen.style.display = 'flex';
+                    splashScreen.style.opacity = '1';
+                }
+                
+                // Mostrar primera burbuja
+                if (burbuja1) {
+                    burbuja1.style.opacity = '1';
+                    burbuja1.style.animation = 'aparecerBurbuja 0.5s ease forwards, flotar 4s ease-in-out infinite';
+                }
+                
+                // Programar aparición de segunda burbuja después de 2.5 segundos
+                setTimeout(() => {
+                    if (burbuja1) {
+                        burbuja1.style.opacity = '0';
+                        burbuja1.style.animation = 'none';
+                    }
+                    if (burbuja2) {
+                        burbuja2.style.opacity = '1';
+                        burbuja2.style.animation = 'aparecerBurbuja 0.5s ease forwards, flotar 4s ease-in-out infinite';
+                    }
+                }, 2500);
+                
+                // Intentar reproducir el video
+                if (video) {
+                    video.play().catch(e => console.log('Error al reproducir video:', e));
+                }
+                
+                // Animación de entrada
+                if (splashScreen) {
+                    splashScreen.style.animation = 'aparecer 1s ease';
+                }
+            });
+
+            // Cuando termina el video
+            if (video) {
+                video.addEventListener('ended', function() {
+                    if (splashScreen) {
+                        splashScreen.style.transition = 'opacity 1.2s ease';
+                        splashScreen.style.opacity = '0';
+                    }
+                    setTimeout(() => {
+                        if (splashScreen) splashScreen.style.display = 'none';
+                        if (mainContent) {
+                            mainContent.style.display = 'block';
+                            document.body.style.overflow = 'auto';
+                            mainContent.style.animation = 'aparecer 1.5s ease';
+                        }
+                        // Inicializar parallax
+                        window.dispatchEvent(new Event('scroll'));
+                    }, 1200);
+                });
+            }
+
+            // Tiempo de seguridad por si el video falla
+            setTimeout(function() {
+                if (splashScreen && splashScreen.style.display === 'flex' && splashScreen.style.opacity !== '0') {
+                    splashScreen.style.transition = 'opacity 1.2s ease';
+                    splashScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        splashScreen.style.display = 'none';
+                        if (mainContent) {
+                            mainContent.style.display = 'block';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }, 1200);
+                }
+            }, 10000);
+
+            // Para móviles: intentar reproducir al tocar la pantalla
+            document.addEventListener('touchstart', function() {
+                if (video && video.paused && splashScreen && splashScreen.style.display === 'flex') {
+                    video.play();
+                }
+            }, { once: true });
+
+            // Efecto parallax
+            window.addEventListener('scroll', function() {
+                const parallaxBg = document.getElementById('parallaxBg');
+                const parallaxOverlay = document.getElementById('parallaxOverlay');
+                
+                if (parallaxBg && parallaxOverlay) {
+                    const scrollPosition = window.pageYOffset;
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const maxScroll = documentHeight - windowHeight;
+                    const scrollPercentage = maxScroll > 0 ? scrollPosition / maxScroll : 0;
+                    
+                    const minTranslate = -150;
+                    const maxTranslate = 0;
+                    const speed = 0.8;
+                    let translateY = maxTranslate - (scrollPercentage * Math.abs(minTranslate) * speed);
+                    translateY = Math.max(minTranslate, Math.min(maxTranslate, translateY));
+                    
+                    parallaxBg.style.transform = `translateY(${translateY}px)`;
+                    parallaxOverlay.style.transform = `translateY(${translateY}px)`;
+                }
+            });
+        })();
+    </script>
+
+    <script>
+        // ===== MODAL DE CONTACTO =====
+        (function() {
+            const modal = document.getElementById('modal-contacto');
+            const btnAbrir = document.getElementById('abrir-modal');
+            const btnCerrar = document.querySelector('.cerrar-modal');
+
+            if (btnAbrir && modal && btnCerrar) {
+                btnAbrir.onclick = function() {
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+
+                btnCerrar.onclick = function() {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        })();
+    </script>
+
+    <script>
+        // ===== FAQ ACORDEÓN =====
+        (function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const pregunta = item.querySelector('.faq-pregunta');
+                if (pregunta) {
+                    pregunta.addEventListener('click', () => {
+                        item.classList.toggle('activo');
+                        const icono = item.querySelector('.faq-icono');
+                        if (icono) {
+                            icono.textContent = item.classList.contains('activo') ? '✕' : '➕';
+                        }
+                    });
+                }
+            });
+        })();
+    </script>
+
+    <script>
+        // ===== MODALES DE CONSEJOS =====
+        (function() {
+            const whenItems = document.querySelectorAll('.when-item');
+            const consejoMap = {
+                'Cambios en intereses y rutina': 'consejo-cambios',
+                'Rendimiento y atención escolar': 'consejo-rendimiento',
+                'Relaciones sociales': 'consejo-social',
+                'Problemas de conducta y emocionales': 'consejo-conducta',
+                'Desarrollo y salud': 'consejo-salud',
+                'Problemas cognitivos y autoestima': 'consejo-cognitivo'
+            };
+            
+            whenItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const titulo = this.querySelector('h3')?.textContent.trim();
+                    if (!titulo) return;
+                    const modalId = consejoMap[titulo];
+                    if (modalId) {
+                        const modal = document.getElementById(modalId);
+                        if (modal) {
+                            modal.style.display = 'block';
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.cerrar-consejo-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.consejo-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('consejo-modal')) {
+                    e.target.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        })();
+    </script>
+
+    <script>
+        // ===== DROPDOWN MULTISELECT =====
+        (function() {
+            const dropdownBtn = document.getElementById('dropdownMotivoBtn');
+            const dropdownOpciones = document.getElementById('dropdownMotivoOpciones');
+            const hiddenInput = document.getElementById('motivoSelected');
+            const checkboxes = document.querySelectorAll('#dropdownMotivoOpciones input[type="checkbox"]');
+
+            if (!dropdownBtn || !dropdownOpciones || !hiddenInput) return;
+
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownOpciones.classList.toggle('mostrar');
+            });
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', actualizarSeleccion);
+            });
+
+            function actualizarSeleccion() {
+                const seleccionadosText = [];
+                const seleccionadosValues = [];
+
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        const label = document.querySelector(`label[for="${cb.id}"]`);
+                        seleccionadosText.push(label ? label.innerText : cb.value);
+                        seleccionadosValues.push(cb.value);
+                    }
+                });
+
+                dropdownBtn.innerText = seleccionadosText.length > 0 ? seleccionadosText.join(', ') : 'Selecciona una o más opciones';
+                hiddenInput.value = seleccionadosValues.join(',');
+            }
+
+            document.addEventListener('click', (e) => {
+                if (!dropdownBtn.contains(e.target) && !dropdownOpciones.contains(e.target)) {
+                    dropdownOpciones.classList.remove('mostrar');
+                }
+            });
+
+            dropdownOpciones.addEventListener('click', (e) => e.stopPropagation());
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && dropdownOpciones.classList.contains('mostrar')) {
+                    dropdownOpciones.classList.remove('mostrar');
+                }
+            });
+        })();
+    </script>
+
+    <script>
+        // ===== MENÚ HAMBURGUESA =====
+        (function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+            }
+        })();
+    </script>
+
+    <script>
+        // ===== CARRUSEL INFINITO (lento) =====
+        (function() {
+            const track = document.querySelector('.carrusel-track');
+            if (!track) return;
+
+            const images = Array.from(track.children);
+            if (images.length === 0) return;
+
+            // Clonar imágenes para efecto infinito
+            images.forEach(img => {
+                const clone = img.cloneNode(true);
+                track.appendChild(clone);
+            });
+
+            let position = 0;
+            const speed = 0.1; // píxeles por frame (ajustable)
+            const gap = 16; // gap en píxeles (igual que en CSS)
+            const imageWidth = images[0].offsetWidth + gap;
+            const totalWidth = imageWidth * images.length; // ancho del conjunto original
+
+            let requestId;
+
+            function move() {
+                position -= speed;
+                if (Math.abs(position) >= totalWidth) {
+                    position = 0;
+                }
+                track.style.transform = `translateX(${position}px)`;
+                requestId = requestAnimationFrame(move);
+            }
+
+            move();
+
+            track.addEventListener('mouseenter', () => cancelAnimationFrame(requestId));
+            track.addEventListener('mouseleave', () => {
+                requestId = requestAnimationFrame(move);
+            });
+        })();
+    </script>
+
+    <script>
+        // ===== BOTÓN DE SONIDO PARA VIDEO VERTICAL =====
+        (function() {
+            const video = document.querySelector('.footer-video-vertical');
+            const soundBtn = document.getElementById('unmute-btn');
+            
+            if (video && soundBtn) {
+                soundBtn.addEventListener('click', function() {
+                    if (video.muted) {
+                        video.muted = false;
+                        soundBtn.textContent = '🔊 Silenciar';
+                        soundBtn.style.background = 'rgba(255, 255, 255, 0.4)';
+                    } else {
+                        video.muted = true;
+                        soundBtn.textContent = '🔇 Activar sonido';
+                        soundBtn.style.background = 'rgba(0, 0, 0, 0.5)';
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

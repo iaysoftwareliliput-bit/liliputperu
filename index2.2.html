@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida - Psicología</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        /* PANTALLA DE CARGA CON LOGO GIRATORIO */
+        #pantalla-carga {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .logo-carga-circulo {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #E0E7F0;
+            border-top: 5px solid #A6BCD2;
+            border-radius: 50%;
+            animation: girar 1.5s linear infinite;
+        }
+
+        .texto-carga {
+            color: #5E6B8C;
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        @keyframes girar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* PANTALLA DE BIENVENIDA CON VIDEO */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor-video {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #video-bienvenida {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 1;
+        }
+
+        /* BURBUJA MUCHO MÁS ARRIBA - AHORA EN 2% */
+        .burbuja {
+            position: absolute;
+            top: 2%;  /* ¡MUCHO MÁS ARRIBA! Antes era 10% ahora 2% */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 2.3em;
+            font-weight: 400;
+            color: #4A5568;
+            box-shadow: 0 5px 20px rgba(166, 188, 210, 0.2);
+            z-index: 2;
+            animation: flotar 4s ease-in-out infinite;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(166, 188, 210, 0.3);
+            white-space: nowrap;
+        }
+
+        .burbuja::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-top: 18px solid rgba(255, 255, 255, 0.95);
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        @media (max-width: 768px) {
+            .burbuja {
+                font-size: 1.5em;
+                padding: 10px 20px;
+                white-space: normal;
+                width: 80%;
+                top: 1%;  /* También más arriba en móvil */
+            }
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        #contenido-principal {
+            min-height: 100vh;
+            background: white;
+            color: #4A5568;
+            display: none;
+            padding: 60px 40px;
+        }
+
+        .contenido-bienvenida {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            animation: aparecer 1.5s ease;
+        }
+
+        @keyframes aparecer {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #contenido-principal h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #5E6B8C;
+            font-weight: 400;
+        }
+
+        #contenido-principal p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #6B7A8F;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- PANTALLA DE CARGA CON LOGO GIRATORIO -->
+    <div id="pantalla-carga">
+        <div class="logo-carga-circulo"></div>
+        <div class="texto-carga">Cargando....</div>
+    </div>
+
+    <!-- PANTALLA DE BIENVENIDA CON VIDEO -->
+    <div id="splash-screen">
+        <div class="contenedor-video">
+            
+            <!-- VIDEO -->
+            <video id="video-bienvenida" autoplay muted playsinline>
+                <source src="1003_V2.mp4" type="video/mp4">
+            </video>
+            
+            <!-- BURBUJA MUCHO MÁS ARRIBA -->
+            <div class="burbuja">
+                BIENVENIDOS A LILIPUT
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div id="contenido-principal">
+        <div class="contenido-bienvenida">
+            <h1>Tu espacio de confianza</h1>
+            <p>Aquí encontrarás un lugar seguro para tu bienestar emocional.</p>
+        </div>
+    </div>
+
+    <script>
+        const pantallaCarga = document.getElementById('pantalla-carga');
+        const splashScreen = document.getElementById('splash-screen');
+        const video = document.getElementById('video-bienvenida');
+        const contenidoPrincipal = document.getElementById('contenido-principal');
+
+        // Mostrar carga por 2 segundos
+        setTimeout(() => {
+            pantallaCarga.style.transition = 'opacity 0.8s ease';
+            pantallaCarga.style.opacity = '0';
+            
+            setTimeout(() => {
+                pantallaCarga.style.display = 'none';
+                splashScreen.style.display = 'flex';
+                video.play().catch(e => console.log(e));
+                splashScreen.style.animation = 'aparecer 1s ease';
+            }, 800);
+        }, 2000);
+
+        // Cuando termina el video
+        video.addEventListener('ended', function() {
+            splashScreen.style.transition = 'opacity 1.2s ease';
+            splashScreen.style.opacity = '0';
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+                contenidoPrincipal.style.display = 'block';
+                contenidoPrincipal.style.animation = 'aparecer 1.5s ease';
+            }, 1200);
+        });
+
+        // Tiempo de seguridad
+        setTimeout(function() {
+            if (splashScreen.style.display === 'flex' && splashScreen.style.opacity !== '0') {
+                splashScreen.style.transition = 'opacity 1.2s ease';
+                splashScreen.style.opacity = '0';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                    contenidoPrincipal.style.display = 'block';
+                }, 1200);
+            }
+        }, 10000);
+
+        // Para móviles
+        document.addEventListener('touchstart', function() {
+            if (video.paused && splashScreen.style.display === 'flex') {
+                video.play();
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
