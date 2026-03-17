@@ -2999,14 +2999,50 @@ body {
 
 /* Media query para móvil */
 @media screen and (max-width: 768px) {
+    /* Navbar sticky y flex para ordenar elementos */
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;      /* Vuelve a ser sticky */
+        top: 0;                 /* Necesario para sticky */
+        z-index: 1000;          /* Asegura que esté sobre el contenido */
+        padding: 0.5rem 1rem;
+        background: rgba(255, 250, 250, 0.95); /* Fondo semitransparente */
+        backdrop-filter: blur(12px); /* Mantiene el efecto de vidrio */
+    }
+
+    /* Hamburguesa a la derecha */
     .hamburger {
         display: flex;
+        order: 3;
     }
-    
+
+    /* Botón AGENDAR CITA justo después del logo */
+     .btn-pastel {
+    order: 2;
+    margin: 0 15% 0 0;  /* superior | derecho | inferior | izquierdo */
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+}
+
+    /* Logo a la izquierda */
+    .logo {
+        order: 1;
+    }
+
+    /* Tamaño del logo en móvil (opcional) */
+    .logo-circular {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Menú desplegable (sin cambios, pero ahora se posiciona correctamente debajo del navbar sticky) */
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%; /* justo debajo del navbar */
+        top: 100%;              /* Justo debajo del navbar */
         left: 0;
         width: 100%;
         background: rgba(255, 250, 250, 0.95);
@@ -3018,20 +3054,50 @@ body {
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         z-index: 999;
     }
-    
+
     .nav-links.active {
         display: flex;
     }
-    
+
     .nav-links a {
         margin: 0.5rem 0;
         font-size: 1.2rem;
     }
-    
-    /* Ajustes para el botón de agendar cita en móvil */
-    .btn-pastel {
-        margin-left: auto;
-        margin-right: 0.5rem;
+
+
+    .logo {
+        order: 1; /* el primero a la izquierda */
+    }
+
+    .logo-circular {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* El resto igual */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 250, 250, 0.95);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
     }
 }
 /* ===== SECCIÓN DE CONVENIOS ===== */
