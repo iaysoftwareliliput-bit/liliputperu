@@ -209,60 +209,68 @@ este proceso.</p>
 <h2 class="section-title">ÁREAS DE ACOMPAÑAMIENTO</h2>
 
 <section class="cards" id="sobre">
-    <div class="card">
+    <div class="card" data-area="frustracion">
         <div class="card-icon">🧠</div>
         <h3>TOLERANCIA A LA FRUSTRACIÓN</h3>
         <p>Acompañamos a sus hijos en el aprendizaje para manejar la frustración de manera saludable, fortaleciendo la paciencia y la resiliencia ante situaciones que no salen como esperan.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="impulsos">
         <div class="card-icon">⚡</div>
         <h3>CONTROL DE IMPULSOS</h3>
         <p>Brindamos herramientas para que sus hijos aprendan a pensar antes de actuar, manejar la impulsividad y tomar decisiones más conscientes en su vida diaria.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="atencion">
         <div class="card-icon">🧩</div>
         <h3>ATENCIÓN, CONCENTRACIÓN Y MEMORIA</h3>
         <p>Fortalecemos las capacidades cognitivas de sus hijos mediante ejercicios prácticos que mejoran el enfoque, la retención de información y su rendimiento académico.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="ira">
         <div class="card-icon">😤</div>
         <h3>CONTROL DE IRA</h3>
         <p>Ayudamos a sus hijos a identificar los detonantes del enojo y a desarrollar estrategias efectivas para expresar sus emociones de manera adecuada y constructiva.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="socializacion">
         <div class="card-icon">👥</div>
         <h3>SOCIALIZACIÓN</h3>
         <p>Impulsamos el desarrollo de habilidades sociales en sus hijos, favoreciendo relaciones saludables, la creación de amistades y una mejor integración en su entorno.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="autoestima">
         <div class="card-icon">💛</div>
         <h3>AUTOESTIMA</h3>
         <p>Trabajamos en el fortalecimiento del autoconcepto y la valoración personal de sus hijos, promoviendo una relación más segura y positiva consigo mismos.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="vocacional">
         <div class="card-icon">🎓</div>
         <h3>ORIENTACIÓN VOCACIONAL</h3>
         <p>Acompañamos a sus hijos en el descubrimiento de sus habilidades, intereses y fortalezas para que puedan tomar decisiones académicas y profesionales con mayor seguridad y claridad.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="ansiedad">
         <div class="card-icon">😰</div>
         <h3>ANSIEDAD</h3>
         <p>Brindamos estrategias prácticas para que sus hijos aprendan a gestionar la ansiedad, reducir preocupaciones excesivas y recuperar la calma en su día a día.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-area="estres">
         <div class="card-icon">😩</div>
         <h3>ESTRÉS</h3>
         <p>Apoyamos a sus hijos en la identificación de las fuentes de estrés y en el desarrollo de técnicas efectivas para manejarlo, promoviendo equilibrio y bienestar.</p>
     </div>
 </section>
+
+<!-- ===== MODAL DE TEST POR ÁREA ===== -->
+<div id="modal-test" class="modal-test-overlay" style="display:none;">
+    <div class="modal-test-box">
+        <button class="modal-test-cerrar" id="cerrar-test">✕</button>
+        <div id="test-contenido"></div>
+    </div>
+</div>
             <!-- Sección: ¿Cuándo llevar a mi hijo/a al psicólogo/a? -->
             <section class="when-to-go" id="consejos">
                 <h2 class="section-title">¿Cuándo llevar a mi hijo/a al psicólogo/a?</h2>
@@ -695,7 +703,7 @@ este proceso.</p>
                 <h4>📞 Contáctenos</h4>
                 <ul class="footer-contacto">
                     <li>📱 <a href="https://wa.me/51996110346">+51 996 110 346</a></li>
-                    <li>📧 <a href="mailto:Liliput.peru@gmail.com">Liliput.peru@gmail.com</a></li>
+                    <li>📧 <a href="/cdn-cgi/l/email-protection#7b371217120b0e0f550b1e090e3b1c161a121755181416"><span class="__cf_email__" data-cfemail="3c705550554c4948124c594e497c5b515d5550125f5351">[email&#160;protected]</span></a></li>
                     
                     
                 </ul>
@@ -850,9 +858,9 @@ este proceso.</p>
 </div>
             
             <div class="campo-formulario">
-                <label for="profesional">profecional de preferencia </label>
+                <label for="profesional">Asignación según disponibilidad </label>
                 <select id="profesional" name="profesional">
-                    <option value="">Asignación según disponibilidad</option>
+                    <option value="">Indiferente</option>
                     <option value="edson">LIC. Edson Gutiérrez Pellegrin</option>
                     <option value="ana">LIC. Ana Terán Cruz</option>
                 </select>
@@ -877,7 +885,7 @@ este proceso.</p>
 </div>
 
  <!-- ===== SCRIPTS ===== -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ===== SCRIPT PRINCIPAL: VIDEO Y PARALLAX =====
         (function() {
             const splashScreen = document.getElementById('splash-screen');
@@ -1143,6 +1151,173 @@ este proceso.</p>
     </script>
 
     <script>
+    // ===== TEST POR ÁREA DE ACOMPAÑAMIENTO =====
+    (function () {
+        const tests = {
+            frustracion: {
+                titulo: '🧠 Tolerancia a la Frustración',
+                preguntas: [
+                    { texto: '¿Cómo reacciona tu hijo/a cuando algo no sale como esperaba?', opciones: ['Se enoja mucho y no puede calmarse', 'Se molesta un rato pero luego lo supera', 'Lo acepta con calma y busca soluciones'] },
+                    { texto: '¿Con qué frecuencia tiene rabietas o crisis por situaciones cotidianas?', opciones: ['Muy seguido (varias veces por semana)', 'A veces (una o dos veces por semana)', 'Rara vez o casi nunca'] },
+                    { texto: '¿Puede esperar su turno sin desesperarse?', opciones: ['No, se impacienta mucho', 'Le cuesta pero lo logra', 'Sí, espera sin problemas'] }
+                ]
+            },
+            impulsos: {
+                titulo: '⚡ Control de Impulsos',
+                preguntas: [
+                    { texto: '¿Tu hijo/a actúa sin pensar en las consecuencias?', opciones: ['Sí, casi siempre', 'A veces', 'Casi nunca, piensa antes de actuar'] },
+                    { texto: '¿Interrumpe conversaciones o actividades de otros de forma impulsiva?', opciones: ['Con mucha frecuencia', 'Ocasionalmente', 'Rara vez'] },
+                    { texto: '¿Puede detenerse cuando se le pide que pare una conducta?', opciones: ['No, le cuesta mucho parar', 'Necesita repetírselo varias veces', 'Sí, responde bien al primer llamado'] }
+                ]
+            },
+            atencion: {
+                titulo: '🧩 Atención, Concentración y Memoria',
+                preguntas: [
+                    { texto: '¿Tu hijo/a logra concentrarse en una tarea sin distraerse?', opciones: ['No, se distrae constantemente', 'Se distrae pero vuelve a la tarea', 'Sí, mantiene el enfoque bien'] },
+                    { texto: '¿Olvida fácilmente instrucciones o tareas que le dieron?', opciones: ['Sí, muy seguido', 'A veces', 'No, recuerda sin problemas'] },
+                    { texto: '¿Cómo es su rendimiento académico actualmente?', opciones: ['Ha bajado bastante', 'Es regular', 'Es bueno o excelente'] }
+                ]
+            },
+            ira: {
+                titulo: '😤 Control de Ira',
+                preguntas: [
+                    { texto: '¿Tu hijo/a reconoce cuándo está enojado/a antes de explotar?', opciones: ['No, explota sin aviso', 'A veces lo detecta', 'Sí, lo identifica bien'] },
+                    { texto: '¿Expresa su enojo de forma agresiva (golpes, gritos, insultos)?', opciones: ['Sí, frecuentemente', 'Ocasionalmente', 'Casi nunca'] },
+                    { texto: '¿Logra calmarse después de un episodio de ira?', opciones: ['Le toma mucho tiempo', 'Se calma con ayuda', 'Se calma solo/a relativamente rápido'] }
+                ]
+            },
+            socializacion: {
+                titulo: '👥 Socialización',
+                preguntas: [
+                    { texto: '¿Tu hijo/a tiene dificultades para hacer amigos?', opciones: ['Sí, le cuesta mucho relacionarse', 'Tiene algunos amigos pero le cuesta ampliar el círculo', 'No, se relaciona bien con sus pares'] },
+                    { texto: '¿Participa en actividades grupales en la escuela o fuera de ella?', opciones: ['Se aísla o prefiere estar solo/a', 'Participa cuando se le insiste', 'Participa con gusto y naturalidad'] },
+                    { texto: '¿Se integra bien al entorno familiar y social?', opciones: ['Le cuesta bastante', 'Más o menos', 'Se integra muy bien'] }
+                ]
+            },
+            autoestima: {
+                titulo: '💛 Autoestima',
+                preguntas: [
+                    { texto: '¿Tu hijo/a habla bien de sí mismo/a o suele menospreciarse?', opciones: ['Frecuentemente se critica o menosprecia', 'A veces duda de sí mismo/a', 'Tiene una imagen positiva de sí mismo/a'] },
+                    { texto: '¿Se rinde fácilmente ante los retos por miedo a fallar?', opciones: ['Sí, evita intentar cosas nuevas', 'A veces necesita mucho aliento', 'Lo intenta aunque sea difícil'] },
+                    { texto: '¿Cómo reacciona ante los errores o fracasos?', opciones: ['Se derrumba y no quiere seguir', 'Le afecta pero lo supera', 'Lo toma como aprendizaje'] }
+                ]
+            },
+            vocacional: {
+                titulo: '🎓 Orientación Vocacional',
+                preguntas: [
+                    { texto: '¿Tu hijo/a tiene claridad sobre sus intereses y talentos?', opciones: ['No tiene idea de qué le gusta', 'Tiene algunas ideas vagas', 'Sabe bien qué le apasiona'] },
+                    { texto: '¿Ha pensado en qué quiere estudiar o hacer al terminar el colegio?', opciones: ['No le interesa el tema', 'Lo piensa pero sin dirección', 'Tiene ideas claras y las explora'] },
+                    { texto: '¿Conecta sus actividades diarias con sus metas futuras?', opciones: ['No ve relación entre ambas', 'A veces lo intenta', 'Sí, tiene motivación y dirección'] }
+                ]
+            },
+            ansiedad: {
+                titulo: '😰 Ansiedad',
+                preguntas: [
+                    { texto: '¿Tu hijo/a se preocupa excesivamente por situaciones cotidianas?', opciones: ['Sí, casi todo le genera preocupación', 'A veces se preocupa de más', 'No, maneja bien sus preocupaciones'] },
+                    { texto: '¿Presenta síntomas físicos ante situaciones de tensión (dolor de panza, cabeza, etc.)?', opciones: ['Sí, con frecuencia', 'Ocasionalmente', 'Rara vez o nunca'] },
+                    { texto: '¿Evita situaciones o lugares por miedo o nervios?', opciones: ['Sí, evita muchas cosas', 'Algunas situaciones le generan temor', 'No, enfrenta las situaciones sin grandes miedos'] }
+                ]
+            },
+            estres: {
+                titulo: '😩 Estrés',
+                preguntas: [
+                    { texto: '¿Tu hijo/a se muestra abrumado/a por sus responsabilidades escolares o cotidianas?', opciones: ['Sí, frecuentemente se siente sobrepasado/a', 'A veces le cuesta manejar la carga', 'No, organiza bien sus actividades'] },
+                    { texto: '¿Tiene dificultades para dormir o descansar bien?', opciones: ['Sí, tiene problemas frecuentes de sueño', 'A veces le cuesta dormir', 'Duerme bien generalmente'] },
+                    { texto: '¿Cómo describe su estado general de bienestar últimamente?', opciones: ['Se siente muy cansado/a o tenso/a', 'Regular, con altibajos', 'Bien, equilibrado/a'] }
+                ]
+            }
+        };
+
+        const resultados = [
+            { nivel: 'Podría necesitar apoyo', emoji: '🔴', clase: 'barra-roja', color: '#ff4040', desc: 'Las respuestas sugieren que tu hijo/a podría estar pasando por un momento difícil en esta área. Te recomendamos agendar una consulta con nuestro equipo.' },
+            { nivel: 'Área a fortalecer', emoji: '🟠', clase: 'barra-naranja', color: '#ff8c00', desc: 'Hay señales de alerta moderadas. Con el acompañamiento adecuado tu hijo/a puede mejorar significativamente en esta área.' },
+            { nivel: 'Buena gestión', emoji: '🟢', clase: 'barra-verde', color: '#2dbe5c', desc: '¡Muy bien! Tu hijo/a maneja bien esta área. Continúa promoviendo estos hábitos y no dudes en consultar si algo cambia.' }
+        ];
+
+        const overlay = document.getElementById('modal-test');
+        const contenido = document.getElementById('test-contenido');
+        const btnCerrar = document.getElementById('cerrar-test');
+
+        function abrirTest(area) {
+            const t = tests[area];
+            if (!t) return;
+            contenido.innerHTML = renderTest(t, area);
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            document.getElementById('btn-ver-resultado').addEventListener('click', () => mostrarResultado(area));
+        }
+
+        function renderTest(t, area) {
+            let html = `<div class="test-titulo">${t.titulo}</div>
+                <div class="test-subtitulo">Responde 3 preguntas sobre tu hijo/a</div>`;
+            t.preguntas.forEach((p, pi) => {
+                html += `<div class="test-pregunta"><p>${pi + 1}. ${p.texto}</p><div class="test-opciones">`;
+                p.opciones.forEach((op, oi) => {
+                    html += `<label><input type="radio" name="q${pi}" value="${oi}"> ${op}</label>`;
+                });
+                html += `</div></div>`;
+            });
+            html += `<button class="btn-test-ver" id="btn-ver-resultado">Ver resultado →</button>`;
+            return html;
+        }
+
+        function mostrarResultado(area) {
+            const t = tests[area];
+            let puntaje = 0;
+            let respondidas = 0;
+            t.preguntas.forEach((_, pi) => {
+                const sel = document.querySelector(`input[name="q${pi}"]:checked`);
+                if (sel) { puntaje += parseInt(sel.value); respondidas++; }
+            });
+            if (respondidas < t.preguntas.length) {
+                alert('Por favor responde todas las preguntas 😊');
+                return;
+            }
+            // 0-2 = rojo, 3-4 = naranja, 5-6 = verde
+            let nivel = puntaje <= 2 ? 0 : puntaje <= 4 ? 1 : 2;
+            const r = resultados[nivel];
+            const porcentaje = [25, 60, 92][nivel];
+
+            contenido.innerHTML = `
+                <div class="test-resultado">
+                    <div class="test-resultado-emoji">${r.emoji}</div>
+                    <div class="test-titulo">${t.titulo}</div>
+                    <div class="barra-resultado-wrap" style="margin-top:1rem;">
+                        <div class="barra-resultado-fill ${r.clase}" id="barra-fill" style="width:0%"></div>
+                    </div>
+                    <div class="test-resultado-nivel" style="color:${r.color};font-weight:700;font-size:1.05rem;">${r.nivel}</div>
+                    <div class="test-resultado-desc">${r.desc}</div>
+                    <button class="btn-test-reiniciar" id="btn-reiniciar">↩ Volver a intentar</button>
+                </div>`;
+
+            setTimeout(() => {
+                const fill = document.getElementById('barra-fill');
+                if (fill) fill.style.width = porcentaje + '%';
+            }, 80);
+
+            document.getElementById('btn-reiniciar').addEventListener('click', () => abrirTest(area));
+        }
+
+        // Abrir modal al hacer click en card
+        document.querySelectorAll('.card[data-area]').forEach(card => {
+            card.addEventListener('click', () => abrirTest(card.dataset.area));
+        });
+
+        btnCerrar.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    })();
+    </script>
+
+    <script>
         // ===== MENÚ HAMBURGUESA =====
         (function() {
             const hamburger = document.getElementById('hamburger');
@@ -1219,6 +1394,7 @@ este proceso.</p>
                         soundBtn.style.background = 'rgba(255, 255, 255, 0.4)';
                     } else {
                         video.muted = true;
+
                         soundBtn.textContent = '🔇 Activar sonido';
                         soundBtn.style.background = 'rgba(0, 0, 0, 0.5)';
                     }
