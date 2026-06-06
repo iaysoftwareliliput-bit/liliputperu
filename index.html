@@ -331,12 +331,22 @@ este proceso.</p>
 <h2 class="section-title">ÁREAS DE ACOMPAÑAMIENTO</h2>
 
 <section class="cards" id="sobre">
+    <div class="card" data-area="socializacion">
+        <div class="card-icon">👥</div>
+        <h3>SOCIALIZACIÓN</h3>
+        <p>Impulsamos el desarrollo de habilidades sociales en sus hijos, favoreciendo relaciones saludables, la creación de amistades y una mejor integración en su entorno.</p>
+    </div>
+    <div class="card" data-area="seguimiento_instrucciones">
+        <div class="card-icon">📝</div>
+        <h3>DIFICULTAD EN EL SEGUIMIENTO DE INSTRUCCIONES</h3>
+        <p>Brindamos estrategias y apoyo para mejorar la comprensión y el seguimiento de instrucciones, favoreciendo la atención, la organización y el cumplimiento adecuado de actividades en diferentes entornos.</p>
+    </div>
     <div class="card" data-area="frustracion">
         <div class="card-icon">🧠</div>
         <h3>TOLERANCIA A LA FRUSTRACIÓN</h3>
         <p>Acompañamos a sus hijos en el aprendizaje para manejar la frustración de manera saludable, fortaleciendo la paciencia y la resiliencia ante situaciones que no salen como esperan.</p>
     </div>
-
+ 
     <div class="card" data-area="impulsos">
         <div class="card-icon">⚡</div>
         <h3>CONTROL DE IMPULSOS</h3>
@@ -355,11 +365,7 @@ este proceso.</p>
         <p>Ayudamos a sus hijos a identificar los detonantes del enojo y a desarrollar estrategias efectivas para expresar sus emociones de manera adecuada y constructiva.</p>
     </div>
 
-    <div class="card" data-area="socializacion">
-        <div class="card-icon">👥</div>
-        <h3>SOCIALIZACIÓN</h3>
-        <p>Impulsamos el desarrollo de habilidades sociales en sus hijos, favoreciendo relaciones saludables, la creación de amistades y una mejor integración en su entorno.</p>
-    </div>
+   
 
     <div class="card" data-area="autoestima">
         <div class="card-icon">💛</div>
@@ -879,6 +885,12 @@ este proceso.</p>
                             <input type="checkbox" id="motivo_socializacion" value="socializacion">
                             <label for="motivo_socializacion">Socialización</label>
                         </div>
+                        
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_seguimiento_instrucciones" value="seguimiento_instrucciones">
+                            <label for="motivo_seguimiento_instrucciones">Dificultad en el seguimiento de instrucciones</label>
+                        </div>
+
                         <div class="checkbox-item">
                             <input type="checkbox" id="motivo_autoestima" value="autoestima">
                             <label for="motivo_autoestima">Autoestima</label>
@@ -903,7 +915,7 @@ este proceso.</p>
             <div class="campo-formulario">
                 <label for="profesional">Asignación según disponibilidad </label>
                 <select id="profesional" name="profesional">
-                    <option value="">Indiferente</option>
+                    <option value="">Aleatorio</option>
                     <option value="edson">LIC. Edson Gutiérrez Pellegrin</option>
                     <option value="ana">LIC. Ana Terán Cruz</option>
                 </select>
@@ -1174,6 +1186,11 @@ este proceso.</p>
                 { texto: '¿Tu hijo/a tiene dificultades para hacer amigos?', opciones: ['Sí, le cuesta mucho relacionarse', 'Tiene algunos amigos pero le cuesta ampliar el círculo', 'No, se relaciona bien con sus pares'] },
                 { texto: '¿Participa en actividades grupales en la escuela o fuera de ella?', opciones: ['Se aísla o prefiere estar solo/a', 'Participa cuando se le insiste', 'Participa con gusto y naturalidad'] },
                 { texto: '¿Se integra bien al entorno familiar y social?', opciones: ['Le cuesta bastante', 'Más o menos', 'Se integra muy bien'] }
+            ]},
+            seguimiento_instrucciones: { titulo: '📝 Dificultad en el seguimiento de instrucciones', preguntas: [
+                { texto: '¿Tu hijo/a comprende y sigue instrucciones simples de uno o dos pasos?', opciones: ['Frecuentemente necesita que se le repitan varias veces','A veces requiere ayuda o recordatorios','Las sigue sin dificultad'] },
+                { texto: '¿Qué tan bien sigue indicaciones durante actividades escolares o en casa?', opciones: ['Tiene muchas dificultades para completarlas','Las completa con supervisión','Las completa de forma autónoma'] },
+                { texto: '¿Mantiene la atención suficiente para terminar una tarea siguiendo instrucciones?', opciones: ['Se distrae constantemente y no las termina','Se distrae algunas veces','Mantiene la atención y las termina adecuadamente'] }
             ]},
             autoestima: { titulo: '💛 Autoestima', preguntas: [
                 { texto: '¿Tu hijo/a habla bien de sí mismo/a o suele menospreciarse?', opciones: ['Frecuentemente se critica o menosprecia', 'A veces duda de sí mismo/a', 'Tiene una imagen positiva de sí mismo/a'] },
