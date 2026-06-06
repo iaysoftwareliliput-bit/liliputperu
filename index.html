@@ -7,6 +7,131 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="lili2.jpg">
 
+    <!-- ===== CSS CAMPO DESCUENTO ===== -->
+    <style>
+        /* ===== CAMPO CÓDIGO DE DESCUENTO ===== */
+        .campo-descuento-wrapper {
+            margin-top: 0.5rem;
+        }
+
+        .campo-descuento-wrapper label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .opcional-tag {
+            font-size: 0.75rem;
+            color: #aaa;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .descuento-input-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: stretch;
+        }
+
+        .descuento-input-row input {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            border: 2px solid #f3d0e8;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #3b1f4e;
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s;
+            background: #fffafd;
+        }
+
+        .descuento-input-row input:focus {
+            border-color: #e87fb0;
+            box-shadow: 0 0 0 3px rgba(232, 127, 176, 0.18);
+        }
+
+        .descuento-input-row input.codigo-valido {
+            border-color: #6ee7b7;
+            background: #f0fdf4;
+            box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.2);
+        }
+
+        .descuento-input-row input.codigo-invalido {
+            border-color: #fca5a5;
+            background: #fff5f5;
+            box-shadow: 0 0 0 3px rgba(252, 165, 165, 0.2);
+        }
+
+        #btn-validar-codigo {
+            padding: 0.7rem 1.1rem;
+            background: linear-gradient(135deg, #e87fb0, #c084fc);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 800;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        #btn-validar-codigo:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(192, 132, 252, 0.4);
+        }
+
+        #btn-validar-codigo:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Feedback */
+        .feedback-descuento {
+            margin-top: 0.5rem;
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            animation: fadeInDesc 0.3s ease;
+        }
+
+        .feedback-descuento.exito {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1.5px solid #6ee7b7;
+        }
+
+        .feedback-descuento.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1.5px solid #fca5a5;
+        }
+
+        .feedback-descuento.cargando {
+            background: #f3e8ff;
+            color: #6b21a8;
+            border: 1.5px solid #c084fc;
+        }
+
+        .feedback-descuento.neutro {
+            background: #f9fafb;
+            color: #6b7280;
+            border: 1.5px solid #e5e7eb;
+        }
+
+        @keyframes fadeInDesc {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <!-- PANTALLA DE CARGA CON LOGO GIRATORIO -->
@@ -114,9 +239,6 @@
             <h3>Saint Andrés </h3>
         
         </div>
-
-        <!-- Convenio 4 -->
-        
 
         <!-- Convenio 5 -->
         <div class="convenio-card">
@@ -390,47 +512,38 @@ este proceso.</p>
                 <!-- Sobre el psicólogo - CON FOTO, SIN LA CARA SVG -->
 <section class="about-section" id="servicios" >
     <div class="about-container">
-        <!-- FOTO DEL DOCTOR (lo que QUIERES mantener) -->
         <div class="about-image">
             <img src="dr1.png" alt="LIC. EDSON GUTIÉRREZ" class="about-img">
         </div>
-        
-        <!-- DESCRIPCIÓN DEL DOCTOR -->
         <div class="about-content">
             <h2>Lic. Edson Gutiérrez Pellegrin</h2>
             <p class="about-subtitle">Licenciado en Psicopedagogía con enfoque Cognitivo-Conductual.</p>
             <p class="about-description">Especialista en acompañamiento infantil y adolescente.</p>
-
             <div class="credenciales">
                 <span class="credencial">Psicopedagogía</span>
-            <span class="credencial">Convivencia Escolar</span>
-            <span class="credencial">Tutoría</span>
-            <span class="credencial">Enfoque Cognitivo-Conductual</span>
-            <span class="credencial">Orientación Educativa</span>
+                <span class="credencial">Convivencia Escolar</span>
+                <span class="credencial">Tutoría</span>
+                <span class="credencial">Enfoque Cognitivo-Conductual</span>
+                <span class="credencial">Orientación Educativa</span>
             </div>
         </div>
     </div>
 </section>
 <section class="about-section" id="servicios">
     <div class="about-container">
-        <!-- FOTO DEL DOCTOR (lo que QUIERES mantener) -->
         <div class="about-image">
-            <img src="dra.png" alt="LIC. EDSON GUTIÉRREZ" class="about-img">
+            <img src="dra.png" alt="LIC. ANA TERÁN" class="about-img">
         </div>
-        
-        <!-- DESCRIPCIÓN DE dra -->
         <div class="about-content">
             <h2>Lic. Ana Terán Cruz</h2>
-            <p class="about-subtitle">Licenciada en psicologia con enfoque Cognitivo-Conductual.</p>
+            <p class="about-subtitle">Licenciada en Psicopedagogía con enfoque Cognitivo-Conductual.</p>
             <p class="about-description">Especialista en niños y adolescentes</p>
-            
-
             <div class="credenciales">
-                <span class="credencial">psicologia</span>
-            <span class="credencial">Enfoque Cognitivo Conductual</span>
-            <span class="credencial">Procesos Clínicos</span>
-            <span class="credencial">Orientación Vocacional</span>
-            <span class="credencial">Acompañamiento Emocional</span>
+                <span class="credencial">Psicopedagogía</span>
+                <span class="credencial">Enfoque Cognitivo Conductual</span>
+                <span class="credencial">Procesos Clínicos</span>
+                <span class="credencial">Orientación Vocacional</span>
+                <span class="credencial">Acompañamiento Emocional</span>
             </div>
         </div>
     </div>
@@ -442,68 +555,46 @@ este proceso.</p>
     <h2 class="section-title">Verdades y Mitos sobre la Psicología</h2>
 
     <div class="testimonial-grid">
-        <!-- MITO 1 -->
         <div class="testimonial-item mito">
             <h3 class="icono">❌ MITO</h3>
             <p>Ir al psicólogo es solo para personas con problemas graves.</p>
         </div>
-
-        <!-- VERDAD 1 -->
         <div class="testimonial-item verdad">
             <h3 class="icono">✅ VERDAD</h3>
             <p>La terapia ayuda a cualquier persona que quiera mejorar su bienestar emocional.</p>
         </div>
-
-        <!-- MITO 2 -->
         <div class="testimonial-item mito">
             <h3 class="icono">❌ MITO</h3>
-            <p>Los niños no necesitan terapia porque “ya se les pasará”.</p>
+            <p>Los niños no necesitan terapia porque "ya se les pasará".</p>
         </div>
-
-        <!-- VERDAD 2 -->
         <div class="testimonial-item verdad">
             <h3 class="icono">✅ VERDAD</h3>
             <p>La atención temprana en la infancia fortalece el desarrollo emocional.</p>
         </div>
-
-        <!-- MITO 3 -->
         <div class="testimonial-item mito">
             <h3 class="icono">❌ MITO</h3>
             <p>Los psicólogos solo te escuchan y no dan soluciones.</p>
         </div>
-
-        <!-- VERDAD 3 -->
         <div class="testimonial-item verdad">
             <h3 class="icono">✅ VERDAD</h3>
             <p>Los psicólogos ofrecen herramientas y estrategias prácticas para enfrentar problemas.</p>
         </div>
-
-        <!-- MITO 4 -->
         <div class="testimonial-item mito">
             <h3 class="icono">❌ MITO</h3>
             <p>La terapia es larga y nunca termina.</p>
         </div>
-
-        <!-- VERDAD 4 -->
         <div class="testimonial-item verdad">
             <h3 class="icono">✅ VERDAD</h3>
             <p>La duración de la terapia depende de cada persona y sus objetivos; muchas veces es breve y efectiva.</p>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-
+    <br><br><br><br>
 </section>
+
 <!-- SECCIÓN DE EVENTOS Y TALLERES -->
 <section class="eventos-section" id="eventos">
     <h2 class="section-title">📅 PRÓXIMOS EVENTOS</h2>
-    
-    
     <div class="eventos-grid">
-        
-         <!-- Evento 1 -->
         <div class="evento-card">
             <div class="evento-flyer">
                 <img src="lili.png" alt="Flyer del evento" class="flyer-imagen">
@@ -522,7 +613,6 @@ este proceso.</p>
                 <a href="#" class="evento-btn">MÁS INFORMACIÓN</a>
             </div>
         </div>
- <!-- Evento 1 -->
         <div class="evento-card">
             <div class="evento-flyer">
                 <img src="lili.png" alt="Flyer del evento" class="flyer-imagen">
@@ -540,7 +630,6 @@ este proceso.</p>
                 <a href="#" class="evento-btn">MÁS INFORMACIÓN</a>
             </div>
         </div>
-        <!-- Evento 1 -->
         <div class="evento-card">
             <div class="evento-flyer">
                 <img src="logos/colegio2.png" alt="Flyer del evento" class="flyer-imagen">
@@ -562,20 +651,12 @@ este proceso.</p>
     </div>
 </section>
 
-
-            <!-- Newsletter -->
-            <!-- <section class="newsletter">-->
-             <!--   <h2> RECURSOS GRATUITOS</h2>-->
-             <!--     <p>Recibe guías y ejercicios de mindfulness.</p>-->
-              <!--  </section>-->
-
 <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
 <section class="faq-section" id="preguntas">
     <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
     <p class="faq-subtitulo">Resolvemos tus dudas más comunes</p>
     
     <div class="faq-contenedor">
-        <!-- Pregunta 1 -->
         <div class="faq-item">
             <div class="faq-pregunta">
                 <span>👶 ¿Cómo sé si mi hijo necesita terapia?</span>
@@ -586,7 +667,6 @@ este proceso.</p>
             </div>
         </div>
         <br>
-        <!-- Pregunta 2 -->
         <div class="faq-item">
             <div class="faq-pregunta">
                 <span>⏱️ ¿Cuánto dura una sesión de terapia?</span>
@@ -597,7 +677,6 @@ este proceso.</p>
             </div>
         </div>
         <br>
-        <!-- Pregunta 3 -->
         <div class="faq-item">
             <div class="faq-pregunta">
                 <span>💳 ¿Aceptan seguros médicos?</span>
@@ -608,7 +687,6 @@ este proceso.</p>
             </div>
         </div>
         <br>
-        <!-- Pregunta 4 -->
         <div class="faq-item">
             <div class="faq-pregunta">
                 <span>💻 ¿Ofrecen sesiones online?</span>
@@ -619,7 +697,6 @@ este proceso.</p>
             </div>
         </div>
         <br>
-        <!-- Pregunta 5 -->
         <div class="faq-item">
             <div class="faq-pregunta">
                 <span>🗓️ ¿Cómo puedo agendar mi primera cita?</span>
@@ -633,46 +710,41 @@ este proceso.</p>
             </div>
         </div>
         <br>
-                 <!-- Pregunta 6 -->
-<div class="faq-item">
-    <div class="faq-pregunta">
-        <span>👶 ¿Qué edades abordamos?</span>
-        <span class="faq-icono">➕</span>
-    </div>
-    <div class="faq-respuesta">
-        <p>Brindamos atención psicológica a:</p>
-        <p>👶 Niños desde los 3 años.</p>
-        <p>👦 Niños en etapa escolar.</p>
-        <p>🧑 Adolescentes.</p>
-        <p>👨‍👩‍👧 Padres que requieran orientación y acompañamiento.</p>
-        <p>Adaptamos las estrategias terapéuticas según la edad y las necesidades individuales de cada paciente, trabajando siempre de la mano con la familia cuando es necesario.</p>
-    </div>
-</div>
-<br>
-<!-- Pregunta 7 -->
-<div class="faq-item">
-    <div class="faq-pregunta">
-        <span>📄 ¿Realizan informes y certificados psicológicos?</span>
-        <span class="faq-icono">➕</span>
-    </div>
-    <div class="faq-respuesta">
-        <p>Sí, realizamos:</p><br>
-        <p>📑 Informes psicológicos para instituciones educativas.</p>
-        <p>📝 Certificados psicológicos según evaluación previa.</p>
-        <p>📊 Reportes de avance terapéutico cuando sean solicitados.</p>
-        <p>Todos los documentos se emiten de manera formal y profesional, luego de un proceso de evaluación responsable.</p>
-    </div>
-</div>
+        <div class="faq-item">
+            <div class="faq-pregunta">
+                <span>👶 ¿Qué edades abordamos?</span>
+                <span class="faq-icono">➕</span>
+            </div>
+            <div class="faq-respuesta">
+                <p>Brindamos atención psicológica a:</p>
+                <p>👶 Niños desde los 3 años.</p>
+                <p>👦 Niños en etapa escolar.</p>
+                <p>🧑 Adolescentes.</p>
+                <p>👨‍👩‍👧 Padres que requieran orientación y acompañamiento.</p>
+                <p>Adaptamos las estrategias terapéuticas según la edad y las necesidades individuales de cada paciente, trabajando siempre de la mano con la familia cuando es necesario.</p>
+            </div>
+        </div>
+        <br>
+        <div class="faq-item">
+            <div class="faq-pregunta">
+                <span>📄 ¿Realizan informes y certificados psicológicos?</span>
+                <span class="faq-icono">➕</span>
+            </div>
+            <div class="faq-respuesta">
+                <p>Sí, realizamos:</p><br>
+                <p>📑 Informes psicológicos para instituciones educativas.</p>
+                <p>📝 Certificados psicológicos según evaluación previa.</p>
+                <p>📊 Reportes de avance terapéutico cuando sean solicitados.</p>
+                <p>Todos los documentos se emiten de manera formal y profesional, luego de un proceso de evaluación responsable.</p>
+            </div>
+        </div>
     </div>
 </section>
-<!-- CARRUSEL DE PACIENTES -->
 
           <!-- Footer -->
 <footer class="footer" id="contacto">
     <div class="footer-content">
-        <!-- Grid de 5 columnas -->
         <div class="footer-grid-5">
-            <!-- Columna 1: Logo y horario -->
             <div class="footer-col">
                 <div class="footer-logo">
                     <img src="lili.png" alt="Liliput" class="footer-logo-img">
@@ -684,8 +756,6 @@ este proceso.</p>
                     <p class="domingo">Domingos: Cerrado</p>
                 </div>
             </div>
-
-            <!-- Columna 2: Enlaces de interés -->
             <div class="footer-col">
                 <h4>🔗 Enlaces de Interés</h4>
                 <ul class="footer-enlaces">
@@ -697,38 +767,22 @@ este proceso.</p>
                     <li><a href="#preguntas">➤ Preguntas Frecuentes</a></li>
                 </ul>
             </div>
-
-            <!-- Columna 3: Contacto -->
             <div class="footer-col">
                 <h4>📞 Contáctenos</h4>
                 <ul class="footer-contacto">
                     <li>📱 <a href="https://wa.me/51996110346">+51 996 110 346</a></li>
-                    <li>📧 <a href="/cdn-cgi/l/email-protection#7b371217120b0e0f550b1e090e3b1c161a121755181416"><span class="__cf_email__" data-cfemail="3c705550554c4948124c594e497c5b515d5550125f5351">[email&#160;protected]</span></a></li>
-                    
-                    
+                    <li>📧 <a href="mailto:Liliput.peru@gmail.com">Liliput.peru@gmail.com</a></li>
                 </ul>
-                
                 <div class="footer-redes">
                     <h4>🌐 Redes Sociales</h4>
                     <div class="social">
-                        <a href="https://www.instagram.com/liliput.piura" target="_blank">
-                            <img src="1.png" alt="Instagram">
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100075938857558" target="_blank">
-                            <img src="4.png" alt="Facebook">
-                        </a>
-                        <a href="https://www.tiktok.com/@liliput.piura" target="_blank">
-                            <img src="3.png" alt="TikTok">
-                        </a>
-                        <a href="https://wa.me/51996110346" target="_blank">
-                            <img src="2.png" alt="WhatsApp">
-                        </a>
+                        <a href="https://www.instagram.com/liliput.piura" target="_blank"><img src="1.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/profile.php?id=100075938857558" target="_blank"><img src="4.png" alt="Facebook"></a>
+                        <a href="https://www.tiktok.com/@liliput.piura" target="_blank"><img src="3.png" alt="TikTok"></a>
+                        <a href="https://wa.me/51996110346" target="_blank"><img src="2.png" alt="WhatsApp"></a>
                     </div>
                 </div>
             </div>
-            
-
-            <!-- Columna 4: Ubicación y mapa -->
             <div class="footer-col">
                 <h4>📍 Ubicación</h4>
                 <div class="footer-mapa">
@@ -743,8 +797,6 @@ este proceso.</p>
                     </a>
                 </div>
             </div>
-
-            <!-- Columna 5: Cómo llegar en video -->
             <div class="footer-col footer-video-col-5">
                 <h4>🎥 Cómo llegar a LILIPUT</h4>
                 <div class="video-container-vertical">
@@ -759,16 +811,10 @@ este proceso.</p>
                 <p class="video-subtitle-vertical">Sigue este video para llegar fácilmente a nuestro consultorio</p>
             </div>
         </div>
-
-        <!-- Copyright y términos -->
         <div class="footer-bottom">
             <div class="footer-bottom-content">
-                <p class="copyright">
-                    © 2026 LILIPUT - Todos los derechos reservados
-                </p>
-                <p class="creditos">
-                    <!-- CREDITOS A HEINNER SAMIR VALDEZ YAMO numero para cualquier consulta sobre el desarrollo de la página: 937059682 -->
-                </p>
+                <p class="copyright">© 2026 LILIPUT - Todos los derechos reservados</p>
+                <p class="creditos"><!-- CREDITOS A HEINNER SAMIR VALDEZ YAMO numero para cualquier consulta sobre el desarrollo de la página: 937059682 --></p>
             </div>
         </div>
     </div>
@@ -777,20 +823,18 @@ este proceso.</p>
         </main>
     </div>
 
-<!-- MODAL DEL FORMULARIO DE CONTACTO - CON FORMSUBMIT -->
+<!-- =====================================================
+     MODAL DEL FORMULARIO DE CONTACTO - CON FORMSUBMIT
+     ===================================================== -->
 <div id="modal-contacto" class="modal">
     <div class="modal-contenido">
         <span class="cerrar-modal">&times;</span>
         <h2 class="modal-titulo">AGENDAR CITA</h2>
         <p class="modal-subtitulo">Déjanos tus datos y te contactaremos</p>
         
-        <!-- FORMULARIO CON FORMSUBMIT -->
         <form action="https://formsubmit.co/Liliput.peru@gmail.com" method="POST" class="formulario-contacto">
-            <!-- Campos ocultos de configuración -->
             <input type="hidden" name="_subject" value="Nueva cita desde web LILIPUT">
             <input type="hidden" name="_template" value="table">
-            
-            <!-- Campo anti-spam oculto -->
             <input type="text" name="_honey" style="display:none">
             
             <div class="campo-formulario">
@@ -808,54 +852,53 @@ este proceso.</p>
                 <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 996110346">
             </div>
             
-           <div class="campo-formulario dropdown-checkbox">
-    <label>Motivo de consulta</label>
-    <div class="dropdown-container">
-        <button type="button" class="dropdown-button" id="dropdownMotivoBtn">
-            Selecciona una o más opciones
-        </button>
-        <div class="dropdown-opciones" id="dropdownMotivoOpciones">
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_tolerancia_frustracion" value="tolerancia_frustracion">
-                <label for="motivo_tolerancia_frustracion">Tolerancia a la frustración</label>
+            <div class="campo-formulario dropdown-checkbox">
+                <label>Motivo de consulta</label>
+                <div class="dropdown-container">
+                    <button type="button" class="dropdown-button" id="dropdownMotivoBtn">
+                        Selecciona una o más opciones
+                    </button>
+                    <div class="dropdown-opciones" id="dropdownMotivoOpciones">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_tolerancia_frustracion" value="tolerancia_frustracion">
+                            <label for="motivo_tolerancia_frustracion">Tolerancia a la frustración</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_control_impulsos" value="control_impulsos">
+                            <label for="motivo_control_impulsos">Control de impulsos</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_atencion_concentracion_memoria" value="atencion_concentracion_memoria">
+                            <label for="motivo_atencion_concentracion_memoria">Atención, concentración y memoria</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_control_ira" value="control_ira">
+                            <label for="motivo_control_ira">Control de ira</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_socializacion" value="socializacion">
+                            <label for="motivo_socializacion">Socialización</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_autoestima" value="autoestima">
+                            <label for="motivo_autoestima">Autoestima</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_orientacion_vocacional" value="orientacion_vocacional">
+                            <label for="motivo_orientacion_vocacional">Orientación Vocacional</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_ansiedad" value="ansiedad">
+                            <label for="motivo_ansiedad">Ansiedad</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motivo_estres" value="estres">
+                            <label for="motivo_estres">Estrés</label>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="motivo" id="motivoSelected" value="">
             </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_control_impulsos" value="control_impulsos">
-                <label for="motivo_control_impulsos">Control de impulsos</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_atencion_concentracion_memoria" value="atencion_concentracion_memoria">
-                <label for="motivo_atencion_concentracion_memoria">Atención, concentración y memoria</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_control_ira" value="control_ira">
-                <label for="motivo_control_ira">Control de ira</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_socializacion" value="socializacion">
-                <label for="motivo_socializacion">Socialización</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_autoestima" value="autoestima">
-                <label for="motivo_autoestima">Autoestima</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_orientacion_vocacional" value="orientacion_vocacional">
-                <label for="motivo_orientacion_vocacional">Orientación Vocacional</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_ansiedad" value="ansiedad">
-                <label for="motivo_ansiedad">Ansiedad</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="motivo_estres" value="estres">
-                <label for="motivo_estres">Estrés</label>
-            </div>
-        </div>
-    </div>
-    <!-- Campo oculto que guarda los valores seleccionados (separados por coma) -->
-    <input type="hidden" name="motivo" id="motivoSelected" value="">
-</div>
             
             <div class="campo-formulario">
                 <label for="profesional">Asignación según disponibilidad </label>
@@ -870,11 +913,35 @@ este proceso.</p>
                 <label for="mensaje">Mensaje adicional</label>
                 <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos brevemente..."></textarea>
             </div>
+
+            <!-- =====================================================
+                 🏷️ CAMPO CÓDIGO DE DESCUENTO (NUEVO - CONECTADO A FIREBASE)
+                 ===================================================== -->
+            <div class="campo-formulario campo-descuento-wrapper">
+                <label for="campo-codigo-descuento">🏷️ Código de descuento <span class="opcional-tag">(opcional)</span></label>
+                <div class="descuento-input-row">
+                    <input
+                        type="text"
+                        id="campo-codigo-descuento"
+                        name="codigo_descuento_texto"
+                        placeholder="Ej: CONVENIO20"
+                        maxlength="20"
+                        autocomplete="off"
+                    >
+                    <button type="button" id="btn-validar-codigo" onclick="validarCodigoDescuento()">
+                        APLICAR
+                    </button>
+                </div>
+                <div class="feedback-descuento" id="feedback-descuento" style="display:none;"></div>
+                <!-- Campos ocultos que se envían con el formulario al correo -->
+                <input type="hidden" id="hidden-descuento" name="descuento_aplicado" value="">
+                <input type="hidden" id="hidden-codigo-valido" name="codigo_descuento_valido" value="">
+            </div>
+            <!-- ===================================================== -->
             
             <button type="submit" class="btn-enviar">ENVIAR SOLICITUD</button>
         </form>
         
-        <!-- Mensaje de éxito (ya no se usa pero lo dejamos por si acaso) -->
         <div id="mensaje-exito" class="mensaje-exito" style="display: none;">
             <div class="icono-exito">✅</div>
             <h3>¡Solicitud enviada!</h3>
@@ -885,7 +952,7 @@ este proceso.</p>
 </div>
 
  <!-- ===== SCRIPTS ===== -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // ===== SCRIPT PRINCIPAL: VIDEO Y PARALLAX =====
         (function() {
             const splashScreen = document.getElementById('splash-screen');
@@ -894,43 +961,26 @@ este proceso.</p>
             const burbuja1 = document.getElementById('burbuja1');
             const burbuja2 = document.getElementById('burbuja2');
 
-            // Mostrar splash screen y reproducir video inmediatamente
             window.addEventListener('load', function() {
                 if (splashScreen) {
                     splashScreen.style.display = 'flex';
                     splashScreen.style.opacity = '1';
                 }
-                
-                // Mostrar primera burbuja
                 if (burbuja1) {
                     burbuja1.style.opacity = '1';
                     burbuja1.style.animation = 'aparecerBurbuja 0.5s ease forwards, flotar 4s ease-in-out infinite';
                 }
-                
-                // Programar aparición de segunda burbuja después de 2.5 segundos
                 setTimeout(() => {
-                    if (burbuja1) {
-                        burbuja1.style.opacity = '0';
-                        burbuja1.style.animation = 'none';
-                    }
+                    if (burbuja1) { burbuja1.style.opacity = '0'; burbuja1.style.animation = 'none'; }
                     if (burbuja2) {
                         burbuja2.style.opacity = '1';
                         burbuja2.style.animation = 'aparecerBurbuja 0.5s ease forwards, flotar 4s ease-in-out infinite';
                     }
                 }, 2500);
-                
-                // Intentar reproducir el video
-                if (video) {
-                    video.play().catch(e => console.log('Error al reproducir video:', e));
-                }
-                
-                // Animación de entrada
-                if (splashScreen) {
-                    splashScreen.style.animation = 'aparecer 1s ease';
-                }
+                if (video) { video.play().catch(e => console.log('Error al reproducir video:', e)); }
+                if (splashScreen) { splashScreen.style.animation = 'aparecer 1s ease'; }
             });
 
-            // Cuando termina el video
             if (video) {
                 video.addEventListener('ended', function() {
                     if (splashScreen) {
@@ -944,52 +994,40 @@ este proceso.</p>
                             document.body.style.overflow = 'auto';
                             mainContent.style.animation = 'aparecer 1.5s ease';
                         }
-                        // Inicializar parallax
                         window.dispatchEvent(new Event('scroll'));
                     }, 1200);
                 });
             }
 
-            // Tiempo de seguridad por si el video falla
             setTimeout(function() {
                 if (splashScreen && splashScreen.style.display === 'flex' && splashScreen.style.opacity !== '0') {
                     splashScreen.style.transition = 'opacity 1.2s ease';
                     splashScreen.style.opacity = '0';
                     setTimeout(() => {
                         splashScreen.style.display = 'none';
-                        if (mainContent) {
-                            mainContent.style.display = 'block';
-                            document.body.style.overflow = 'auto';
-                        }
+                        if (mainContent) { mainContent.style.display = 'block'; document.body.style.overflow = 'auto'; }
                     }, 1200);
                 }
             }, 10000);
 
-            // Para móviles: intentar reproducir al tocar la pantalla
             document.addEventListener('touchstart', function() {
-                if (video && video.paused && splashScreen && splashScreen.style.display === 'flex') {
-                    video.play();
-                }
+                if (video && video.paused && splashScreen && splashScreen.style.display === 'flex') { video.play(); }
             }, { once: true });
 
-            // Efecto parallax
             window.addEventListener('scroll', function() {
                 const parallaxBg = document.getElementById('parallaxBg');
                 const parallaxOverlay = document.getElementById('parallaxOverlay');
-                
                 if (parallaxBg && parallaxOverlay) {
                     const scrollPosition = window.pageYOffset;
                     const windowHeight = window.innerHeight;
                     const documentHeight = document.documentElement.scrollHeight;
                     const maxScroll = documentHeight - windowHeight;
                     const scrollPercentage = maxScroll > 0 ? scrollPosition / maxScroll : 0;
-                    
                     const minTranslate = -150;
                     const maxTranslate = 0;
                     const speed = 0.8;
                     let translateY = maxTranslate - (scrollPercentage * Math.abs(minTranslate) * speed);
                     translateY = Math.max(minTranslate, Math.min(maxTranslate, translateY));
-                    
                     parallaxBg.style.transform = `translateY(${translateY}px)`;
                     parallaxOverlay.style.transform = `translateY(${translateY}px)`;
                 }
@@ -1005,28 +1043,13 @@ este proceso.</p>
             const btnCerrar = document.querySelector('.cerrar-modal');
 
             if (btnAbrir && modal && btnCerrar) {
-                btnAbrir.onclick = function() {
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                }
-
-                btnCerrar.onclick = function() {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-
+                btnAbrir.onclick = function() { modal.style.display = 'block'; document.body.style.overflow = 'hidden'; }
+                btnCerrar.onclick = function() { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
                 window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
+                    if (event.target == modal) { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
                 }
-
                 document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && modal.style.display === 'block') {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
+                    if (e.key === 'Escape' && modal.style.display === 'block') { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
                 });
             }
         })();
@@ -1042,9 +1065,7 @@ este proceso.</p>
                     pregunta.addEventListener('click', () => {
                         item.classList.toggle('activo');
                         const icono = item.querySelector('.faq-icono');
-                        if (icono) {
-                            icono.textContent = item.classList.contains('activo') ? '✕' : '➕';
-                        }
+                        if (icono) { icono.textContent = item.classList.contains('activo') ? '✕' : '➕'; }
                     });
                 }
             });
@@ -1063,7 +1084,6 @@ este proceso.</p>
                 'Desarrollo y salud': 'consejo-salud',
                 'Problemas cognitivos y autoestima': 'consejo-cognitivo'
             };
-            
             whenItems.forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -1072,29 +1092,18 @@ este proceso.</p>
                     const modalId = consejoMap[titulo];
                     if (modalId) {
                         const modal = document.getElementById(modalId);
-                        if (modal) {
-                            modal.style.display = 'block';
-                            document.body.style.overflow = 'hidden';
-                        }
+                        if (modal) { modal.style.display = 'block'; document.body.style.overflow = 'hidden'; }
                     }
                 });
             });
-            
             document.querySelectorAll('.cerrar-consejo-modal').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const modal = this.closest('.consejo-modal');
-                    if (modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
+                    if (modal) { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
                 });
             });
-            
             window.addEventListener('click', function(e) {
-                if (e.target.classList.contains('consejo-modal')) {
-                    e.target.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
+                if (e.target.classList.contains('consejo-modal')) { e.target.style.display = 'none'; document.body.style.overflow = 'auto'; }
             });
         })();
     </script>
@@ -1109,19 +1118,13 @@ este proceso.</p>
 
             if (!dropdownBtn || !dropdownOpciones || !hiddenInput) return;
 
-            dropdownBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dropdownOpciones.classList.toggle('mostrar');
-            });
+            dropdownBtn.addEventListener('click', (e) => { e.stopPropagation(); dropdownOpciones.classList.toggle('mostrar'); });
 
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', actualizarSeleccion);
-            });
+            checkboxes.forEach(checkbox => { checkbox.addEventListener('change', actualizarSeleccion); });
 
             function actualizarSeleccion() {
                 const seleccionadosText = [];
                 const seleccionadosValues = [];
-
                 checkboxes.forEach(cb => {
                     if (cb.checked) {
                         const label = document.querySelector(`label[for="${cb.id}"]`);
@@ -1129,23 +1132,16 @@ este proceso.</p>
                         seleccionadosValues.push(cb.value);
                     }
                 });
-
                 dropdownBtn.innerText = seleccionadosText.length > 0 ? seleccionadosText.join(', ') : 'Selecciona una o más opciones';
                 hiddenInput.value = seleccionadosValues.join(',');
             }
 
             document.addEventListener('click', (e) => {
-                if (!dropdownBtn.contains(e.target) && !dropdownOpciones.contains(e.target)) {
-                    dropdownOpciones.classList.remove('mostrar');
-                }
+                if (!dropdownBtn.contains(e.target) && !dropdownOpciones.contains(e.target)) { dropdownOpciones.classList.remove('mostrar'); }
             });
-
             dropdownOpciones.addEventListener('click', (e) => e.stopPropagation());
-
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && dropdownOpciones.classList.contains('mostrar')) {
-                    dropdownOpciones.classList.remove('mostrar');
-                }
+                if (e.key === 'Escape' && dropdownOpciones.classList.contains('mostrar')) { dropdownOpciones.classList.remove('mostrar'); }
             });
         })();
     </script>
@@ -1154,78 +1150,51 @@ este proceso.</p>
     // ===== TEST POR ÁREA DE ACOMPAÑAMIENTO =====
     (function () {
         const tests = {
-            frustracion: {
-                titulo: '🧠 Tolerancia a la Frustración',
-                preguntas: [
-                    { texto: '¿Cómo reacciona tu hijo/a cuando algo no sale como esperaba?', opciones: ['Se enoja mucho y no puede calmarse', 'Se molesta un rato pero luego lo supera', 'Lo acepta con calma y busca soluciones'] },
-                    { texto: '¿Con qué frecuencia tiene rabietas o crisis por situaciones cotidianas?', opciones: ['Muy seguido (varias veces por semana)', 'A veces (una o dos veces por semana)', 'Rara vez o casi nunca'] },
-                    { texto: '¿Puede esperar su turno sin desesperarse?', opciones: ['No, se impacienta mucho', 'Le cuesta pero lo logra', 'Sí, espera sin problemas'] }
-                ]
-            },
-            impulsos: {
-                titulo: '⚡ Control de Impulsos',
-                preguntas: [
-                    { texto: '¿Tu hijo/a actúa sin pensar en las consecuencias?', opciones: ['Sí, casi siempre', 'A veces', 'Casi nunca, piensa antes de actuar'] },
-                    { texto: '¿Interrumpe conversaciones o actividades de otros de forma impulsiva?', opciones: ['Con mucha frecuencia', 'Ocasionalmente', 'Rara vez'] },
-                    { texto: '¿Puede detenerse cuando se le pide que pare una conducta?', opciones: ['No, le cuesta mucho parar', 'Necesita repetírselo varias veces', 'Sí, responde bien al primer llamado'] }
-                ]
-            },
-            atencion: {
-                titulo: '🧩 Atención, Concentración y Memoria',
-                preguntas: [
-                    { texto: '¿Tu hijo/a logra concentrarse en una tarea sin distraerse?', opciones: ['No, se distrae constantemente', 'Se distrae pero vuelve a la tarea', 'Sí, mantiene el enfoque bien'] },
-                    { texto: '¿Olvida fácilmente instrucciones o tareas que le dieron?', opciones: ['Sí, muy seguido', 'A veces', 'No, recuerda sin problemas'] },
-                    { texto: '¿Cómo es su rendimiento académico actualmente?', opciones: ['Ha bajado bastante', 'Es regular', 'Es bueno o excelente'] }
-                ]
-            },
-            ira: {
-                titulo: '😤 Control de Ira',
-                preguntas: [
-                    { texto: '¿Tu hijo/a reconoce cuándo está enojado/a antes de explotar?', opciones: ['No, explota sin aviso', 'A veces lo detecta', 'Sí, lo identifica bien'] },
-                    { texto: '¿Expresa su enojo de forma agresiva (golpes, gritos, insultos)?', opciones: ['Sí, frecuentemente', 'Ocasionalmente', 'Casi nunca'] },
-                    { texto: '¿Logra calmarse después de un episodio de ira?', opciones: ['Le toma mucho tiempo', 'Se calma con ayuda', 'Se calma solo/a relativamente rápido'] }
-                ]
-            },
-            socializacion: {
-                titulo: '👥 Socialización',
-                preguntas: [
-                    { texto: '¿Tu hijo/a tiene dificultades para hacer amigos?', opciones: ['Sí, le cuesta mucho relacionarse', 'Tiene algunos amigos pero le cuesta ampliar el círculo', 'No, se relaciona bien con sus pares'] },
-                    { texto: '¿Participa en actividades grupales en la escuela o fuera de ella?', opciones: ['Se aísla o prefiere estar solo/a', 'Participa cuando se le insiste', 'Participa con gusto y naturalidad'] },
-                    { texto: '¿Se integra bien al entorno familiar y social?', opciones: ['Le cuesta bastante', 'Más o menos', 'Se integra muy bien'] }
-                ]
-            },
-            autoestima: {
-                titulo: '💛 Autoestima',
-                preguntas: [
-                    { texto: '¿Tu hijo/a habla bien de sí mismo/a o suele menospreciarse?', opciones: ['Frecuentemente se critica o menosprecia', 'A veces duda de sí mismo/a', 'Tiene una imagen positiva de sí mismo/a'] },
-                    { texto: '¿Se rinde fácilmente ante los retos por miedo a fallar?', opciones: ['Sí, evita intentar cosas nuevas', 'A veces necesita mucho aliento', 'Lo intenta aunque sea difícil'] },
-                    { texto: '¿Cómo reacciona ante los errores o fracasos?', opciones: ['Se derrumba y no quiere seguir', 'Le afecta pero lo supera', 'Lo toma como aprendizaje'] }
-                ]
-            },
-            vocacional: {
-                titulo: '🎓 Orientación Vocacional',
-                preguntas: [
-                    { texto: '¿Tu hijo/a tiene claridad sobre sus intereses y talentos?', opciones: ['No tiene idea de qué le gusta', 'Tiene algunas ideas vagas', 'Sabe bien qué le apasiona'] },
-                    { texto: '¿Ha pensado en qué quiere estudiar o hacer al terminar el colegio?', opciones: ['No le interesa el tema', 'Lo piensa pero sin dirección', 'Tiene ideas claras y las explora'] },
-                    { texto: '¿Conecta sus actividades diarias con sus metas futuras?', opciones: ['No ve relación entre ambas', 'A veces lo intenta', 'Sí, tiene motivación y dirección'] }
-                ]
-            },
-            ansiedad: {
-                titulo: '😰 Ansiedad',
-                preguntas: [
-                    { texto: '¿Tu hijo/a se preocupa excesivamente por situaciones cotidianas?', opciones: ['Sí, casi todo le genera preocupación', 'A veces se preocupa de más', 'No, maneja bien sus preocupaciones'] },
-                    { texto: '¿Presenta síntomas físicos ante situaciones de tensión (dolor de panza, cabeza, etc.)?', opciones: ['Sí, con frecuencia', 'Ocasionalmente', 'Rara vez o nunca'] },
-                    { texto: '¿Evita situaciones o lugares por miedo o nervios?', opciones: ['Sí, evita muchas cosas', 'Algunas situaciones le generan temor', 'No, enfrenta las situaciones sin grandes miedos'] }
-                ]
-            },
-            estres: {
-                titulo: '😩 Estrés',
-                preguntas: [
-                    { texto: '¿Tu hijo/a se muestra abrumado/a por sus responsabilidades escolares o cotidianas?', opciones: ['Sí, frecuentemente se siente sobrepasado/a', 'A veces le cuesta manejar la carga', 'No, organiza bien sus actividades'] },
-                    { texto: '¿Tiene dificultades para dormir o descansar bien?', opciones: ['Sí, tiene problemas frecuentes de sueño', 'A veces le cuesta dormir', 'Duerme bien generalmente'] },
-                    { texto: '¿Cómo describe su estado general de bienestar últimamente?', opciones: ['Se siente muy cansado/a o tenso/a', 'Regular, con altibajos', 'Bien, equilibrado/a'] }
-                ]
-            }
+            frustracion: { titulo: '🧠 Tolerancia a la Frustración', preguntas: [
+                { texto: '¿Cómo reacciona tu hijo/a cuando algo no sale como esperaba?', opciones: ['Se enoja mucho y no puede calmarse', 'Se molesta un rato pero luego lo supera', 'Lo acepta con calma y busca soluciones'] },
+                { texto: '¿Con qué frecuencia tiene rabietas o crisis por situaciones cotidianas?', opciones: ['Muy seguido (varias veces por semana)', 'A veces (una o dos veces por semana)', 'Rara vez o casi nunca'] },
+                { texto: '¿Puede esperar su turno sin desesperarse?', opciones: ['No, se impacienta mucho', 'Le cuesta pero lo logra', 'Sí, espera sin problemas'] }
+            ]},
+            impulsos: { titulo: '⚡ Control de Impulsos', preguntas: [
+                { texto: '¿Tu hijo/a actúa sin pensar en las consecuencias?', opciones: ['Sí, casi siempre', 'A veces', 'Casi nunca, piensa antes de actuar'] },
+                { texto: '¿Interrumpe conversaciones o actividades de otros de forma impulsiva?', opciones: ['Con mucha frecuencia', 'Ocasionalmente', 'Rara vez'] },
+                { texto: '¿Puede detenerse cuando se le pide que pare una conducta?', opciones: ['No, le cuesta mucho parar', 'Necesita repetírselo varias veces', 'Sí, responde bien al primer llamado'] }
+            ]},
+            atencion: { titulo: '🧩 Atención, Concentración y Memoria', preguntas: [
+                { texto: '¿Tu hijo/a logra concentrarse en una tarea sin distraerse?', opciones: ['No, se distrae constantemente', 'Se distrae pero vuelve a la tarea', 'Sí, mantiene el enfoque bien'] },
+                { texto: '¿Olvida fácilmente instrucciones o tareas que le dieron?', opciones: ['Sí, muy seguido', 'A veces', 'No, recuerda sin problemas'] },
+                { texto: '¿Cómo es su rendimiento académico actualmente?', opciones: ['Ha bajado bastante', 'Es regular', 'Es bueno o excelente'] }
+            ]},
+            ira: { titulo: '😤 Control de Ira', preguntas: [
+                { texto: '¿Tu hijo/a reconoce cuándo está enojado/a antes de explotar?', opciones: ['No, explota sin aviso', 'A veces lo detecta', 'Sí, lo identifica bien'] },
+                { texto: '¿Expresa su enojo de forma agresiva (golpes, gritos, insultos)?', opciones: ['Sí, frecuentemente', 'Ocasionalmente', 'Casi nunca'] },
+                { texto: '¿Logra calmarse después de un episodio de ira?', opciones: ['Le toma mucho tiempo', 'Se calma con ayuda', 'Se calma solo/a relativamente rápido'] }
+            ]},
+            socializacion: { titulo: '👥 Socialización', preguntas: [
+                { texto: '¿Tu hijo/a tiene dificultades para hacer amigos?', opciones: ['Sí, le cuesta mucho relacionarse', 'Tiene algunos amigos pero le cuesta ampliar el círculo', 'No, se relaciona bien con sus pares'] },
+                { texto: '¿Participa en actividades grupales en la escuela o fuera de ella?', opciones: ['Se aísla o prefiere estar solo/a', 'Participa cuando se le insiste', 'Participa con gusto y naturalidad'] },
+                { texto: '¿Se integra bien al entorno familiar y social?', opciones: ['Le cuesta bastante', 'Más o menos', 'Se integra muy bien'] }
+            ]},
+            autoestima: { titulo: '💛 Autoestima', preguntas: [
+                { texto: '¿Tu hijo/a habla bien de sí mismo/a o suele menospreciarse?', opciones: ['Frecuentemente se critica o menosprecia', 'A veces duda de sí mismo/a', 'Tiene una imagen positiva de sí mismo/a'] },
+                { texto: '¿Se rinde fácilmente ante los retos por miedo a fallar?', opciones: ['Sí, evita intentar cosas nuevas', 'A veces necesita mucho aliento', 'Lo intenta aunque sea difícil'] },
+                { texto: '¿Cómo reacciona ante los errores o fracasos?', opciones: ['Se derrumba y no quiere seguir', 'Le afecta pero lo supera', 'Lo toma como aprendizaje'] }
+            ]},
+            vocacional: { titulo: '🎓 Orientación Vocacional', preguntas: [
+                { texto: '¿Tu hijo/a tiene claridad sobre sus intereses y talentos?', opciones: ['No tiene idea de qué le gusta', 'Tiene algunas ideas vagas', 'Sabe bien qué le apasiona'] },
+                { texto: '¿Ha pensado en qué quiere estudiar o hacer al terminar el colegio?', opciones: ['No le interesa el tema', 'Lo piensa pero sin dirección', 'Tiene ideas claras y las explora'] },
+                { texto: '¿Conecta sus actividades diarias con sus metas futuras?', opciones: ['No ve relación entre ambas', 'A veces lo intenta', 'Sí, tiene motivación y dirección'] }
+            ]},
+            ansiedad: { titulo: '😰 Ansiedad', preguntas: [
+                { texto: '¿Tu hijo/a se preocupa excesivamente por situaciones cotidianas?', opciones: ['Sí, casi todo le genera preocupación', 'A veces se preocupa de más', 'No, maneja bien sus preocupaciones'] },
+                { texto: '¿Presenta síntomas físicos ante situaciones de tensión (dolor de panza, cabeza, etc.)?', opciones: ['Sí, con frecuencia', 'Ocasionalmente', 'Rara vez o nunca'] },
+                { texto: '¿Evita situaciones o lugares por miedo o nervios?', opciones: ['Sí, evita muchas cosas', 'Algunas situaciones le generan temor', 'No, enfrenta las situaciones sin grandes miedos'] }
+            ]},
+            estres: { titulo: '😩 Estrés', preguntas: [
+                { texto: '¿Tu hijo/a se muestra abrumado/a por sus responsabilidades escolares o cotidianas?', opciones: ['Sí, frecuentemente se siente sobrepasado/a', 'A veces le cuesta manejar la carga', 'No, organiza bien sus actividades'] },
+                { texto: '¿Tiene dificultades para dormir o descansar bien?', opciones: ['Sí, tiene problemas frecuentes de sueño', 'A veces le cuesta dormir', 'Duerme bien generalmente'] },
+                { texto: '¿Cómo describe su estado general de bienestar últimamente?', opciones: ['Se siente muy cansado/a o tenso/a', 'Regular, con altibajos', 'Bien, equilibrado/a'] }
+            ]}
         };
 
         const resultados = [
@@ -1248,13 +1217,10 @@ este proceso.</p>
         }
 
         function renderTest(t, area) {
-            let html = `<div class="test-titulo">${t.titulo}</div>
-                <div class="test-subtitulo">Responde 3 preguntas sobre tu hijo/a</div>`;
+            let html = `<div class="test-titulo">${t.titulo}</div><div class="test-subtitulo">Responde 3 preguntas sobre tu hijo/a</div>`;
             t.preguntas.forEach((p, pi) => {
                 html += `<div class="test-pregunta"><p>${pi + 1}. ${p.texto}</p><div class="test-opciones">`;
-                p.opciones.forEach((op, oi) => {
-                    html += `<label><input type="radio" name="q${pi}" value="${oi}"> ${op}</label>`;
-                });
+                p.opciones.forEach((op, oi) => { html += `<label><input type="radio" name="q${pi}" value="${oi}"> ${op}</label>`; });
                 html += `</div></div>`;
             });
             html += `<button class="btn-test-ver" id="btn-ver-resultado">Ver resultado →</button>`;
@@ -1263,21 +1229,15 @@ este proceso.</p>
 
         function mostrarResultado(area) {
             const t = tests[area];
-            let puntaje = 0;
-            let respondidas = 0;
+            let puntaje = 0; let respondidas = 0;
             t.preguntas.forEach((_, pi) => {
                 const sel = document.querySelector(`input[name="q${pi}"]:checked`);
                 if (sel) { puntaje += parseInt(sel.value); respondidas++; }
             });
-            if (respondidas < t.preguntas.length) {
-                alert('Por favor responde todas las preguntas 😊');
-                return;
-            }
-            // 0-2 = rojo, 3-4 = naranja, 5-6 = verde
+            if (respondidas < t.preguntas.length) { alert('Por favor responde todas las preguntas 😊'); return; }
             let nivel = puntaje <= 2 ? 0 : puntaje <= 4 ? 1 : 2;
             const r = resultados[nivel];
             const porcentaje = [25, 60, 92][nivel];
-
             contenido.innerHTML = `
                 <div class="test-resultado">
                     <div class="test-resultado-emoji">${r.emoji}</div>
@@ -1289,31 +1249,13 @@ este proceso.</p>
                     <div class="test-resultado-desc">${r.desc}</div>
                     <button class="btn-test-reiniciar" id="btn-reiniciar">↩ Volver a intentar</button>
                 </div>`;
-
-            setTimeout(() => {
-                const fill = document.getElementById('barra-fill');
-                if (fill) fill.style.width = porcentaje + '%';
-            }, 80);
-
+            setTimeout(() => { const fill = document.getElementById('barra-fill'); if (fill) fill.style.width = porcentaje + '%'; }, 80);
             document.getElementById('btn-reiniciar').addEventListener('click', () => abrirTest(area));
         }
 
-        // Abrir modal al hacer click en card
-        document.querySelectorAll('.card[data-area]').forEach(card => {
-            card.addEventListener('click', () => abrirTest(card.dataset.area));
-        });
-
-        btnCerrar.addEventListener('click', () => {
-            overlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
+        document.querySelectorAll('.card[data-area]').forEach(card => { card.addEventListener('click', () => abrirTest(card.dataset.area)); });
+        btnCerrar.addEventListener('click', () => { overlay.style.display = 'none'; document.body.style.overflow = 'auto'; });
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) { overlay.style.display = 'none'; document.body.style.overflow = 'auto'; } });
     })();
     </script>
 
@@ -1322,61 +1264,38 @@ este proceso.</p>
         (function() {
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
-
             if (hamburger && navLinks) {
-                hamburger.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    hamburger.classList.toggle('active');
-                });
-
+                hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburger.classList.toggle('active'); });
                 navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                        hamburger.classList.remove('active');
-                    });
+                    link.addEventListener('click', () => { navLinks.classList.remove('active'); hamburger.classList.remove('active'); });
                 });
             }
         })();
     </script>
 
     <script>
-        // ===== CARRUSEL INFINITO (lento) =====
+        // ===== CARRUSEL INFINITO =====
         (function() {
             const track = document.querySelector('.carrusel-track');
             if (!track) return;
-
             const images = Array.from(track.children);
             if (images.length === 0) return;
-
-            // Clonar imágenes para efecto infinito
-            images.forEach(img => {
-                const clone = img.cloneNode(true);
-                track.appendChild(clone);
-            });
-
+            images.forEach(img => { const clone = img.cloneNode(true); track.appendChild(clone); });
             let position = 0;
-            const speed = 0.1; // píxeles por frame (ajustable)
-            const gap = 16; // gap en píxeles (igual que en CSS)
+            const speed = 0.1;
+            const gap = 16;
             const imageWidth = images[0].offsetWidth + gap;
-            const totalWidth = imageWidth * images.length; // ancho del conjunto original
-
+            const totalWidth = imageWidth * images.length;
             let requestId;
-
             function move() {
                 position -= speed;
-                if (Math.abs(position) >= totalWidth) {
-                    position = 0;
-                }
+                if (Math.abs(position) >= totalWidth) { position = 0; }
                 track.style.transform = `translateX(${position}px)`;
                 requestId = requestAnimationFrame(move);
             }
-
             move();
-
             track.addEventListener('mouseenter', () => cancelAnimationFrame(requestId));
-            track.addEventListener('mouseleave', () => {
-                requestId = requestAnimationFrame(move);
-            });
+            track.addEventListener('mouseleave', () => { requestId = requestAnimationFrame(move); });
         })();
     </script>
 
@@ -1385,7 +1304,6 @@ este proceso.</p>
         (function() {
             const video = document.querySelector('.footer-video-vertical');
             const soundBtn = document.getElementById('unmute-btn');
-            
             if (video && soundBtn) {
                 soundBtn.addEventListener('click', function() {
                     if (video.muted) {
@@ -1394,13 +1312,246 @@ este proceso.</p>
                         soundBtn.style.background = 'rgba(255, 255, 255, 0.4)';
                     } else {
                         video.muted = true;
-
                         soundBtn.textContent = '🔇 Activar sonido';
                         soundBtn.style.background = 'rgba(0, 0, 0, 0.5)';
                     }
                 });
             }
         })();
+    </script>
+
+<!-- =====================================================
+         🔥 FIREBASE - VALIDACIÓN DE CÓDIGOS DE DESCUENTO
+         ===================================================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, query, where, getDocs, doc, updateDoc, increment, addDoc, serverTimestamp }
+            from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBVQXS-mP3aeQvITY95i3OQY87BQPRNtLk",
+            authDomain: "codigo-descuento.firebaseapp.com",
+            projectId: "codigo-descuento",
+            storageBucket: "codigo-descuento.firebasestorage.app",
+            messagingSenderId: "1094968477721",
+            appId: "1:1094968477721:web:6275765e79f486297f8288",
+            measurementId: "G-XKKVVM0JQT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // ── Obtener IP pública del usuario ──────────────────────
+        async function obtenerIP() {
+            try {
+                const res = await fetch('https://api.ipify.org?format=json');
+                const data = await res.json();
+                return data.ip || 'desconocida';
+            } catch {
+                return 'desconocida';
+            }
+        }
+
+        // ── Clave localStorage para un código ───────────────────
+        function claveStorage(codigo) {
+            return `liliput_codigo_${codigo}`;
+        }
+
+        // ── Verificar si ya fue usado (localStorage) ─────────────
+        function yaUsadoEnStorage(codigo) {
+            return localStorage.getItem(claveStorage(codigo)) === 'usado';
+        }
+
+        // ── Marcar como usado en localStorage ────────────────────
+        function marcarEnStorage(codigo) {
+            localStorage.setItem(claveStorage(codigo), 'usado');
+        }
+
+        // ── Verificar en Firebase si email o IP ya usaron el código ──
+        async function yaUsadoEnFirebase(codigo, email, ip) {
+            // Verificar por email
+            if (email) {
+                const qEmail = query(
+                    collection(db, "usos_codigos"),
+                    where("codigo", "==", codigo),
+                    where("email", "==", email.toLowerCase())
+                );
+                const snapEmail = await getDocs(qEmail);
+                if (!snapEmail.empty) return { bloqueado: true, razon: 'email' };
+            }
+
+            // Verificar por IP
+            if (ip && ip !== 'desconocida') {
+                const qIP = query(
+                    collection(db, "usos_codigos"),
+                    where("codigo", "==", codigo),
+                    where("ip", "==", ip)
+                );
+                const snapIP = await getDocs(qIP);
+                if (!snapIP.empty) return { bloqueado: true, razon: 'ip' };
+            }
+
+            return { bloqueado: false };
+        }
+
+        // ── Registrar uso en Firebase ─────────────────────────────
+        async function registrarUso(codigo, email, ip, docId) {
+            // Guardar registro de uso
+            await addDoc(collection(db, "usos_codigos"), {
+                codigo: codigo,
+                email: email ? email.toLowerCase() : '',
+                ip: ip || '',
+                usadoEn: serverTimestamp()
+            });
+            // Incrementar contador en el código
+            await updateDoc(doc(db, "codigos_descuento", docId), {
+                usosCount: increment(1)
+            });
+        }
+
+        // ── Función principal de validación ──────────────────────
+        window.validarCodigoDescuento = async function () {
+            const inputCodigo = document.getElementById('campo-codigo-descuento');
+            const codigo = inputCodigo.value.trim().toUpperCase();
+            const hiddenDescuento = document.getElementById('hidden-descuento');
+            const hiddenCodigoValido = document.getElementById('hidden-codigo-valido');
+            const btnValidar = document.getElementById('btn-validar-codigo');
+
+            if (!codigo) {
+                mostrarFeedback('Escribe un código para validar', 'neutro');
+                return;
+            }
+
+            // Obtener email del formulario
+            const emailInput = document.getElementById('correo');
+            const email = emailInput ? emailInput.value.trim() : '';
+
+            btnValidar.disabled = true;
+            btnValidar.textContent = '...';
+            mostrarFeedback('Verificando código...', 'cargando');
+
+            // ── VERIFICACIÓN 1: localStorage ─────────────────────
+            if (yaUsadoEnStorage(codigo)) {
+                mostrarFeedback('⚠️ Ya canjeaste este código', 'error');
+                inputCodigo.classList.add('codigo-invalido');
+                inputCodigo.classList.remove('codigo-valido');
+                hiddenDescuento.value = '';
+                hiddenCodigoValido.value = '';
+                btnValidar.disabled = false;
+                btnValidar.textContent = 'APLICAR';
+                return;
+            }
+
+            // Obtener IP
+            mostrarFeedback('Verificando código...', 'cargando');
+            const ip = await obtenerIP();
+
+            try {
+                // ── VERIFICACIÓN 2: email e IP en Firebase ────────
+                const { bloqueado, razon } = await yaUsadoEnFirebase(codigo, email, ip);
+                if (bloqueado) {
+                    mostrarFeedback('⚠️ Ya canjeaste este código', 'error');
+                    inputCodigo.classList.add('codigo-invalido');
+                    inputCodigo.classList.remove('codigo-valido');
+                    hiddenDescuento.value = '';
+                    hiddenCodigoValido.value = '';
+                    btnValidar.disabled = false;
+                    btnValidar.textContent = 'APLICAR';
+                    return;
+                }
+
+                // ── VERIFICACIÓN 3: código existe y está activo ───
+                const q = query(
+                    collection(db, "codigos_descuento"),
+                    where("codigo", "==", codigo),
+                    where("activo", "==", true)
+                );
+                const snapshot = await getDocs(q);
+
+                if (snapshot.empty) {
+                    mostrarFeedback('❌ Código inválido o no disponible', 'error');
+                    hiddenDescuento.value = '';
+                    hiddenCodigoValido.value = '';
+                    inputCodigo.classList.add('codigo-invalido');
+                    inputCodigo.classList.remove('codigo-valido');
+                } else {
+                    const datos = snapshot.docs[0].data();
+                    const docId = snapshot.docs[0].id;
+                    const porcentaje = datos.porcentaje;
+
+                    // ── Verificar vencimiento por fecha ───────────
+                    if (datos.fechaVencimiento) {
+                        const hoy = new Date();
+                        hoy.setHours(0, 0, 0, 0);
+                        const fv = new Date(datos.fechaVencimiento + 'T00:00:00');
+                        if (fv < hoy) {
+                            mostrarFeedback('❌ Este código ya venció', 'error');
+                            hiddenDescuento.value = '';
+                            hiddenCodigoValido.value = '';
+                            inputCodigo.classList.add('codigo-invalido');
+                            inputCodigo.classList.remove('codigo-valido');
+                            btnValidar.disabled = false;
+                            btnValidar.textContent = 'APLICAR';
+                            return;
+                        }
+                    }
+
+                    // ── Verificar límite de usos totales ──────────
+                    if (datos.usosMax !== null && datos.usosMax !== undefined) {
+                        if ((datos.usosCount || 0) >= datos.usosMax) {
+                            mostrarFeedback('❌ Este código ya alcanzó su límite de usos', 'error');
+                            hiddenDescuento.value = '';
+                            hiddenCodigoValido.value = '';
+                            inputCodigo.classList.add('codigo-invalido');
+                            inputCodigo.classList.remove('codigo-valido');
+                            btnValidar.disabled = false;
+                            btnValidar.textContent = 'APLICAR';
+                            return;
+                        }
+                    }
+
+                    // ── Todo OK: aplicar código ───────────────────
+                    mostrarFeedback(`✅ ¡Código válido! Tienes ${porcentaje}% de descuento 🎉`, 'exito');
+                    hiddenDescuento.value = `${porcentaje}%`;
+                    hiddenCodigoValido.value = codigo;
+                    inputCodigo.classList.add('codigo-valido');
+                    inputCodigo.classList.remove('codigo-invalido');
+
+                    // Registrar uso en Firebase + localStorage
+                    await registrarUso(codigo, email, ip, docId);
+                    marcarEnStorage(codigo);
+                }
+            } catch (error) {
+                console.error(error);
+                mostrarFeedback('⚠️ Error al verificar. Intenta de nuevo.', 'error');
+            }
+
+            btnValidar.disabled = false;
+            btnValidar.textContent = 'APLICAR';
+        };
+
+        function mostrarFeedback(texto, tipo) {
+            const el = document.getElementById('feedback-descuento');
+            el.textContent = texto;
+            el.className = `feedback-descuento ${tipo}`;
+            el.style.display = 'block';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const inputCodigo = document.getElementById('campo-codigo-descuento');
+            if (inputCodigo) {
+                inputCodigo.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') { e.preventDefault(); window.validarCodigoDescuento(); }
+                });
+                inputCodigo.addEventListener('input', function () {
+                    this.value = this.value.toUpperCase();
+                    this.classList.remove('codigo-valido', 'codigo-invalido');
+                    document.getElementById('feedback-descuento').style.display = 'none';
+                    document.getElementById('hidden-descuento').value = '';
+                    document.getElementById('hidden-codigo-valido').value = '';
+                });
+            }
+        });
     </script>
 </body>
 </html>
