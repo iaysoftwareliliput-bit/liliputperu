@@ -329,6 +329,28 @@
                 bottom: 14px;
             }
         }
+
+        /* ===== BOTÓN AGENDAR CITA: MORADO + LATIDO DE CORAZÓN ===== */
+        .btn-pastel {
+            background: linear-gradient(135deg, #a855f7, #7e22ce) !important;
+            color: #fff !important;
+            border: none !important;
+            animation: latidoCorazon 1.2s ease-in-out infinite;
+            box-shadow: 0 4px 14px rgba(126, 34, 206, 0.45);
+        }
+
+        .btn-pastel:hover {
+            background: linear-gradient(135deg, #9333ea, #6b21a8) !important;
+        }
+
+        @keyframes latidoCorazon {
+            0%   { transform: scale(1); }
+            14%  { transform: scale(1.1); }
+            28%  { transform: scale(1); }
+            42%  { transform: scale(1.1); }
+            70%  { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
