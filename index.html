@@ -131,6 +131,204 @@
             from { opacity: 0; transform: translateY(-4px); }
             to   { opacity: 1; transform: translateY(0); }
         }
+
+        /* ===== CHATBOT FLOTANTE (LILI) ===== */
+        #chatbot-burbuja {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e87fb0, #c084fc);
+            box-shadow: 0 6px 18px rgba(192, 132, 252, 0.45);
+            cursor: pointer;
+            z-index: 9998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            animation: chatbotFlotar 3s ease-in-out infinite;
+            transition: transform 0.2s;
+        }
+
+        #chatbot-burbuja:hover {
+            transform: scale(1.08);
+        }
+
+        #chatbot-burbuja img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        #chatbot-burbuja .chatbot-punto {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 14px;
+            height: 14px;
+            background: #2dbe5c;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        @keyframes chatbotFlotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        #chatbot-ventana {
+            position: fixed;
+            bottom: 98px;
+            right: 22px;
+            width: 320px;
+            max-width: 90vw;
+            height: 440px;
+            max-height: 70vh;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 12px 32px rgba(59, 31, 78, 0.25);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 9999;
+            font-family: inherit;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        #chatbot-ventana.abierto {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #e87fb0, #c084fc);
+            padding: 0.7rem 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #fff;
+        }
+
+        .chatbot-header img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        .chatbot-header-info {
+            flex: 1;
+            line-height: 1.2;
+        }
+
+        .chatbot-header-info strong {
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .chatbot-header-info span {
+            font-size: 0.72rem;
+            opacity: 0.9;
+        }
+
+        #chatbot-cerrar {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.2rem;
+        }
+
+        #chatbot-mensajes {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            background: #fdf6fb;
+        }
+
+        .chatbot-msg {
+            max-width: 84%;
+            padding: 0.55rem 0.8rem;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            animation: fadeInDesc 0.25s ease;
+        }
+
+        .chatbot-msg.bot {
+            background: #f3e8ff;
+            color: #3b1f4e;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chatbot-msg.user {
+            background: linear-gradient(135deg, #e87fb0, #c084fc);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        #chatbot-opciones {
+            padding: 0.6rem 0.7rem;
+            border-top: 1px solid #f3d0e8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            max-height: 130px;
+            overflow-y: auto;
+            background: #fff;
+        }
+
+        .chatbot-opcion-btn {
+            background: #fff;
+            border: 1.5px solid #e87fb0;
+            color: #a3448a;
+            border-radius: 20px;
+            padding: 0.4rem 0.7rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            font-family: inherit;
+        }
+
+        .chatbot-opcion-btn:hover {
+            background: #e87fb0;
+            color: #fff;
+        }
+
+        .chatbot-reiniciar-btn {
+            background: #f3e8ff;
+            border: 1.5px solid #c084fc;
+            color: #6b21a8;
+        }
+
+        @media (max-width: 480px) {
+            #chatbot-ventana {
+                right: 12px;
+                left: 12px;
+                width: auto;
+                bottom: 90px;
+            }
+            #chatbot-burbuja {
+                right: 14px;
+                bottom: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -649,96 +847,6 @@
     </div>
 </section>
 
-<!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
-<section class="faq-section" id="preguntas">
-    <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
-    <p class="faq-subtitulo">Resolvemos tus dudas más comunes</p>
-    
-    <div class="faq-contenedor">
-        <div class="faq-item">
-            <div class="faq-pregunta">
-                <span>👶 ¿Cómo sé si mi hijo necesita terapia?</span>
-                <span class="faq-icono">➕</span>
-            </div>
-            <div class="faq-respuesta">
-                <p>Algunas señales pueden ser: cambios bruscos en el comportamiento, dificultad para dormir, bajo rendimiento escolar sin causa aparente, irritabilidad constante, aislamiento o regresiones (volver a hacerse pipí, etc.). Si notas estas señales por más de 2-3 semanas, una consulta con un especialista puede ayudar a entender mejor la situación.</p>
-            </div>
-        </div>
-        <br>
-        <div class="faq-item">
-            <div class="faq-pregunta">
-                <span>⏱️ ¿Cuánto dura una sesión de terapia?</span>
-                <span class="faq-icono">➕</span>
-            </div>
-            <div class="faq-respuesta">
-                <p>Las sesiones tienen una duración aproximada de 45 a 50 minutos. La frecuencia recomendada es generalmente semanal, especialmente al inicio del proceso, para poder establecer un vínculo terapéutico sólido y dar continuidad al trabajo emocional.</p>
-            </div>
-        </div>
-        <br>
-        <div class="faq-item">
-            <div class="faq-pregunta">
-                <span>💳 ¿Aceptan seguros médicos?</span>
-                <span class="faq-icono">➕</span>
-            </div>
-            <div class="faq-respuesta">
-                <p>Actualmente trabajamos de manera particular. Aceptamos pago en efectivo, transferencia bancaria y Yape/Plin. Consulta por nuestras tarifas promocionales para pacientes frecuentes o paquetes de sesiones.</p>
-            </div>
-        </div>
-        <br>
-        <div class="faq-item">
-            <div class="faq-pregunta">
-                <span>💻 ¿Ofrecen sesiones online?</span>
-                <span class="faq-icono">➕</span>
-            </div>
-            <div class="faq-respuesta">
-                <p>¡Sí! Ofrecemos sesiones tanto presenciales en nuestra oficina en Piura, como online a través de videollamada para quienes viven fuera de la ciudad o prefieren la comodidad de su hogar. Ambas modalidades tienen la misma calidad profesional.</p>
-            </div>
-        </div>
-        <br>
-        <div class="faq-item">
-            <div class="faq-pregunta">
-                <span>🗓️ ¿Cómo puedo agendar mi primera cita?</span>
-                <span class="faq-icono">➕</span>
-            </div>
-            <div class="faq-respuesta">
-                <p>Puedes agendar de tres formas: </p><br>
-                <p>  1) Llenando nuestro formulario de contacto (botón "AGENDAR CITA"),</p><br>
-                <p>  2) Escribiéndonos directamente al WhatsApp 996110346, o</p><br>
-                <p>  3)  Enviándonos un mensaje por Instagram o Facebook o Tiktok Te responderemos a la brevedad posible para coordinar el día y hora de de tu cita.</p>
-            </div>
-        </div>
-        <br>
-        <div class="faq-item">
-            <div class="faq-pregunta">
-                <span>👶 ¿Qué edades abordamos?</span>
-                <span class="faq-icono">➕</span>
-            </div>
-            <div class="faq-respuesta">
-                <p>Brindamos atención psicológica a:</p>
-                <p>👶 Niños desde los 3 años.</p>
-                <p>👦 Niños en etapa escolar.</p>
-                <p>🧑 Adolescentes.</p>
-                <p>👨‍👩‍👧 Padres que requieran orientación y acompañamiento.</p>
-                <p>Adaptamos las estrategias terapéuticas según la edad y las necesidades individuales de cada paciente, trabajando siempre de la mano con la familia cuando es necesario.</p>
-            </div>
-        </div>
-        <br>
-        <div class="faq-item">
-            <div class="faq-pregunta">
-                <span>📄 ¿Realizan informes y certificados psicológicos?</span>
-                <span class="faq-icono">➕</span>
-            </div>
-            <div class="faq-respuesta">
-                <p>Sí, realizamos:</p><br>
-                <p>📑 Informes psicológicos para instituciones educativas.</p>
-                <p>📝 Certificados psicológicos según evaluación previa.</p>
-                <p>📊 Reportes de avance terapéutico cuando sean solicitados.</p>
-                <p>Todos los documentos se emiten de manera formal y profesional, luego de un proceso de evaluación responsable.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
           <!-- Footer -->
 <footer class="footer" id="contacto">
     <div class="footer-content">
@@ -762,7 +870,7 @@
                     <li><a href="#consejos">➤ Consejos para Padres</a></li>
                     <li><a href="#servicios">➤ Profesionales</a></li>
                     <li><a href="#recursos">➤ Mitos y Verdades</a></li>
-                    <li><a href="#preguntas">➤ Preguntas Frecuentes</a></li>
+                    <li><a href="#" onclick="document.getElementById('chatbot-burbuja').click(); return false;">➤ Preguntas Frecuentes (Chat)</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1058,23 +1166,6 @@
                     if (e.key === 'Escape' && modal.style.display === 'block') { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
                 });
             }
-        })();
-    </script>
-
-    <script>
-        // ===== FAQ ACORDEÓN =====
-        (function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const pregunta = item.querySelector('.faq-pregunta');
-                if (pregunta) {
-                    pregunta.addEventListener('click', () => {
-                        item.classList.toggle('activo');
-                        const icono = item.querySelector('.faq-icono');
-                        if (icono) { icono.textContent = item.classList.contains('activo') ? '✕' : '➕'; }
-                    });
-                }
-            });
         })();
     </script>
 
@@ -1563,6 +1654,116 @@
                 });
             }
         });
+    </script>
+
+    <!-- =====================================================
+         🦁 CHATBOT LILI - BURBUJA FLOTANTE (reemplaza a Preguntas Frecuentes)
+         ===================================================== -->
+    <div id="chatbot-burbuja" title="Chatea con Lili">
+        <img src="leon.png" alt="Chat con Lili">
+        <span class="chatbot-punto"></span>
+    </div>
+
+    <div id="chatbot-ventana">
+        <div class="chatbot-header">
+            <img src="leon.png" alt="Lili">
+            <div class="chatbot-header-info">
+                <strong>Lili</strong>
+                <span>Asistente virtual · LILIPUT</span>
+            </div>
+            <button id="chatbot-cerrar" aria-label="Cerrar chat">✕</button>
+        </div>
+        <div id="chatbot-mensajes"></div>
+        <div id="chatbot-opciones"></div>
+    </div>
+
+    <script>
+        // ===== CHATBOT LILI: preguntas frecuentes en formato conversacional =====
+        (function () {
+            const faqs = [
+                { id: 'necesita_terapia', pregunta: '👶 ¿Cómo sé si mi hijo necesita terapia?',
+                  respuesta: 'Algunas señales pueden ser: cambios bruscos en el comportamiento, dificultad para dormir, bajo rendimiento escolar sin causa aparente, irritabilidad constante, aislamiento o regresiones (volver a hacerse pipí, etc.). Si notas estas señales por más de 2-3 semanas, una consulta con un especialista puede ayudar a entender mejor la situación.' },
+                { id: 'duracion_sesion', pregunta: '⏱️ ¿Cuánto dura una sesión de terapia?',
+                  respuesta: 'Las sesiones tienen una duración aproximada de 45 a 50 minutos. La frecuencia recomendada es generalmente semanal, especialmente al inicio del proceso, para establecer un vínculo terapéutico sólido y dar continuidad al trabajo emocional.' },
+                { id: 'seguros', pregunta: '💳 ¿Aceptan seguros médicos?',
+                  respuesta: 'Actualmente trabajamos de manera particular. Aceptamos pago en efectivo, transferencia bancaria y Yape/Plin. Consulta por nuestras tarifas promocionales para pacientes frecuentes o paquetes de sesiones.' },
+                { id: 'online', pregunta: '💻 ¿Ofrecen sesiones online?',
+                  respuesta: '¡Sí! Ofrecemos sesiones tanto presenciales en nuestra oficina en Piura, como online a través de videollamada para quienes viven fuera de la ciudad o prefieren la comodidad de su hogar. Ambas modalidades tienen la misma calidad profesional.' },
+                { id: 'agendar', pregunta: '🗓️ ¿Cómo puedo agendar mi primera cita?',
+                  respuesta: 'Puedes agendar de tres formas: 1) Llenando nuestro formulario de contacto (botón "AGENDAR CITA"), 2) Escribiéndonos directamente al WhatsApp 996110346, o 3) Enviándonos un mensaje por Instagram, Facebook o TikTok. Te responderemos a la brevedad para coordinar el día y hora de tu cita.' },
+                { id: 'edades', pregunta: '👶 ¿Qué edades abordamos?',
+                  respuesta: 'Brindamos atención psicológica a niños desde los 3 años, niños en etapa escolar, adolescentes y también a padres que requieran orientación y acompañamiento. Adaptamos las estrategias terapéuticas según la edad y las necesidades individuales de cada paciente.' },
+                { id: 'informes', pregunta: '📄 ¿Realizan informes y certificados psicológicos?',
+                  respuesta: 'Sí, realizamos informes psicológicos para instituciones educativas, certificados psicológicos según evaluación previa y reportes de avance terapéutico cuando sean solicitados. Todos los documentos se emiten de manera formal y profesional, luego de un proceso de evaluación responsable.' }
+            ];
+
+            const burbuja = document.getElementById('chatbot-burbuja');
+            const ventana = document.getElementById('chatbot-ventana');
+            const btnCerrar = document.getElementById('chatbot-cerrar');
+            const mensajes = document.getElementById('chatbot-mensajes');
+            const opciones = document.getElementById('chatbot-opciones');
+            const puntoNotificacion = burbuja.querySelector('.chatbot-punto');
+
+            let iniciado = false;
+
+            function agregarMensaje(texto, tipo) {
+                const div = document.createElement('div');
+                div.className = `chatbot-msg ${tipo}`;
+                div.textContent = texto;
+                mensajes.appendChild(div);
+                mensajes.scrollTop = mensajes.scrollHeight;
+            }
+
+            function mostrarOpciones() {
+                opciones.innerHTML = '';
+                faqs.forEach(faq => {
+                    const btn = document.createElement('button');
+                    btn.className = 'chatbot-opcion-btn';
+                    btn.textContent = faq.pregunta;
+                    btn.addEventListener('click', () => responder(faq));
+                    opciones.appendChild(btn);
+                });
+            }
+
+            function mostrarReinicio() {
+                opciones.innerHTML = '';
+                const btnMas = document.createElement('button');
+                btnMas.className = 'chatbot-opcion-btn chatbot-reiniciar-btn';
+                btnMas.textContent = '↩ Ver todas las preguntas';
+                btnMas.addEventListener('click', mostrarOpciones);
+                opciones.appendChild(btnMas);
+            }
+
+            function responder(faq) {
+                agregarMensaje(faq.pregunta, 'user');
+                setTimeout(() => {
+                    agregarMensaje(faq.respuesta, 'bot');
+                    mostrarReinicio();
+                }, 350);
+            }
+
+            function iniciarConversacion() {
+                if (iniciado) return;
+                iniciado = true;
+                agregarMensaje('¡Hola! 👋 Soy Lili, tu asistente virtual de LILIPUT. Elige una pregunta y te ayudo al instante:', 'bot');
+                mostrarOpciones();
+            }
+
+            function abrirChat() {
+                ventana.classList.add('abierto');
+                if (puntoNotificacion) puntoNotificacion.style.display = 'none';
+                iniciarConversacion();
+            }
+
+            function cerrarChat() {
+                ventana.classList.remove('abierto');
+            }
+
+            burbuja.addEventListener('click', () => {
+                if (ventana.classList.contains('abierto')) { cerrarChat(); } else { abrirChat(); }
+            });
+            btnCerrar.addEventListener('click', cerrarChat);
+        })();
     </script>
 </body>
 </html>
