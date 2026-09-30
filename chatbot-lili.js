@@ -39,7 +39,7 @@
     { id:'duracion', k:['dura','duracion','minutos','cuanto dura','cuanto tiempo','frecuencia','cada cuanto','cuantas sesiones','sesion','sesiones'], a:'Cada sesión dura aproximadamente 45 a 50 minutos. Al inicio se recomienda una vez por semana para construir confianza y dar continuidad; luego el plan se ajusta según los avances. La duración total del proceso depende de cada niño y sus objetivos: muchas veces es breve y efectiva.' },
     { id:'online', k:['online','virtual','videollamada','distancia','zoom','meet','remoto','en linea','desde casa'], a:'¡Sí! Atendemos presencial en Piura y también online por videollamada, para quienes viven fuera o prefieren la comodidad de casa. Ambas modalidades tienen la misma calidad profesional.', cta:'agendar' },
     { id:'agendar', k:['agendar','cita','citas','reservar','reserva','turno','primera cita','sacar cita','programar','quiero atenderme','quiero una consulta'], cta:'agendar', a:'Agendar es fácil 🗓️: 1) toca el botón "AGENDAR CITA" y llena el formulario, 2) escríbenos al WhatsApp 996 110 346, o 3) mándanos mensaje por Instagram, Facebook o TikTok. Te respondemos a la brevedad para coordinar día y hora.' },
-    { id:'horario', k:['horario','horarios','hora','atienden','abren','abierto','sabado','domingo','hasta que hora','cuando atienden','dias'], a:'Atendemos de lunes a sábado, de 10:00 am a 6:00 pm. Los domingos estamos cerrados.', cta:'agendar' },
+    { id:'horario', k:['horario','horarios','hora','atienden','abren','abierto','sabado','domingo','hasta que hora','cuando atienden','dias'], a:'Atendemos de lunes a sábado, de 9:00 am a 6:00 pm. Los domingos estamos cerrados.', cta:'agendar' },
     { id:'ubicacion', k:['ubicacion','direccion','donde','queda','llegar','mapa','ubicados','sanchez cerro','piura','como llego','local','consultorio'], cta:'mapa', a:'Estamos en Av. Sánchez Cerro 3389, Calle Tizón B04, interior 201, Piura 📍. En el pie de la página tienes un video de cómo llegar y el enlace a Google Maps.' },
     { id:'contacto', k:['whatsapp','telefono','celular','numero','correo','email','instagram','facebook','tiktok','redes','contacto','llamar','escribir'], cta:'wa', a:'Puedes contactarnos por WhatsApp al 996 110 346, al correo Liliput.peru@gmail.com o en redes: Instagram @liliput.piura, Facebook y TikTok @liliput.piura.' },
     { id:'edades', k:['edad','edades','años','anos','pequeño','pequeno','bebe','adolescente','desde que edad','niños','ninos','hijo pequeño','padres'], a:'Atendemos a niños desde los 3 años, escolares y adolescentes, y también a padres que necesiten orientación. Adaptamos las estrategias a la edad y necesidades de cada paciente.' },
@@ -130,8 +130,7 @@
   #chatbot-input{flex:1;border:2px solid #f3d0e8;border-radius:20px;padding:.5rem .8rem;font-size:.85rem;font-family:inherit;outline:none;color:#3b1f4e}
   #chatbot-input:focus{border-color:#e87fb0}
   #chatbot-enviar{background:linear-gradient(135deg,#e87fb0,#c084fc);color:#fff;border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:1rem}
-  #chatbot-enviar:disabled{opacity:.5;cursor:not-allowed}
-  #chatbot-opciones{max-height:96px}`;
+  #chatbot-enviar:disabled{opacity:.5;cursor:not-allowed}`;
   document.head.appendChild(css);
 
   document.body.insertAdjacentHTML('beforeend', `
@@ -143,20 +142,14 @@
       <button class="hbtn" id="chatbot-txt" title="Descargar esta conversación (.txt)">⬇</button>
       <button class="hbtn" id="chatbot-cerrar" aria-label="Cerrar chat">✕</button></div>
     <div id="chatbot-mensajes"></div>
-    <div id="chatbot-opciones"></div>
     <form id="chatbot-form" autocomplete="off"><input id="chatbot-input" maxlength="300" placeholder="Escribe tu pregunta…"><button id="chatbot-enviar" type="submit">➤</button></form>
   </div>`);
 
   const $ = id => document.getElementById(id);
-  const burbuja = $('chatbot-burbuja'), ventana = $('chatbot-ventana'), msgs = $('chatbot-mensajes'), ops = $('chatbot-opciones'), inp = $('chatbot-input'), btn = $('chatbot-enviar');
+  const burbuja = $('chatbot-burbuja'), ventana = $('chatbot-ventana'), msgs = $('chatbot-mensajes'), inp = $('chatbot-input'), btn = $('chatbot-enviar');
   let ocupado = false, iniciado = false;
 
   const msg = (t, tipo) => { const d = document.createElement('div'); d.className = 'chatbot-msg ' + tipo; d.textContent = t; msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight; return d; };
-  const CHIPS = [['🗓️ Agendar cita','¿Cómo agendo una cita?'],['💰 Precios','¿Cuánto cuesta una sesión?'],['🕒 Horario','¿Cuál es el horario de atención?'],['📍 Ubicación','¿Dónde están ubicados?'],['💻 Online','¿Tienen sesiones online?'],['👶 ¿Necesita terapia?','¿Cómo sé si mi hijo necesita terapia?']];
-  function chips() {
-    ops.innerHTML = '';
-    CHIPS.forEach(([l, q]) => { const b = document.createElement('button'); b.className = 'chatbot-opcion-btn'; b.textContent = l; b.onclick = () => enviar(q); ops.appendChild(b); });
-  }
   function cta(tipo, q) {
     const map = { agendar:['🗓️ Agendar cita', () => { ventana.classList.remove('abierto'); $('abrir-modal')?.click(); }], wa:['💬 Escribir por WhatsApp', () => window.open(`https://wa.me/${WA}?text=${encodeURIComponent('Hola, tengo una consulta: ' + q)}`, '_blank')], mapa:['🗺️ Abrir en Google Maps', () => window.open('https://maps.app.goo.gl/6HEXpfMfYwoTq6D8A', '_blank')] };
     const [l, fn] = map[tipo]; const b = document.createElement('button'); b.className = 'chatbot-cta'; b.textContent = l; b.onclick = fn; msgs.appendChild(b); msgs.scrollTop = msgs.scrollHeight;
@@ -171,12 +164,12 @@
     const d = msg('', 'bot'); const paso = 3;
     for (let i = 0; i < r.a.length; i += paso) { d.textContent = r.a.slice(0, i + paso); msgs.scrollTop = msgs.scrollHeight; await new Promise(res => setTimeout(res, 12)); }
     if (r.cta) cta(r.cta, q);
-    guardar(q, r.a, r.id); chips();
+    guardar(q, r.a, r.id);
     ocupado = false; btn.disabled = false; inp.focus();
   }
   function abrir() {
     ventana.classList.add('abierto'); burbuja.querySelector('.chatbot-punto').style.display = 'none';
-    if (!iniciado) { iniciado = true; msg('¡Hola! 👋 Soy Lili, tu asistente virtual de LILIPUT. Escríbeme tu pregunta o elige una opción de abajo, y te ayudo al instante.', 'bot'); chips(); }
+    if (!iniciado) { iniciado = true; msg('¡Hola! 👋 Soy Lili, tu asistente virtual de LILIPUT. Escríbeme tu pregunta y te ayudo al instante.', 'bot'); }
     setTimeout(() => inp.focus(), 300);
   }
   burbuja.onclick = () => ventana.classList.contains('abierto') ? ventana.classList.remove('abierto') : abrir();
